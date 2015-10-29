@@ -1,0 +1,16 @@
+[
+{
+  "modid": "demomod",
+  "name": "demomod",
+  "description": "Demo Mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Woogie"],
+  "credits": "Woogie",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

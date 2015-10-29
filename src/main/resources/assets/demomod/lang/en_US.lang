@@ -1,0 +1,15 @@
+entity.demoFourm.name=Woogie's Fourm
+entity.demoDog.name=Woogie's Dog
+item.demomod:spawn_demoFourm.name=Spawn Woogie's Fourm
+item.demomod:spawn_demoDog.name=Spawn Woogie's Dog
+item.demomod:demoHelmet.name=Woogie's Helmet
+item.demomod:demoChestplate.name=Woogie's Chestplate
+item.demomod:demoLeggings.name=Woogie's Leggings
+item.demomod:demoBoots.name=Woogie's Boots
+item.demomod:demoItem.name=Woogie's Ingot
+item.demomod:demoPickaxe.name=Woogie's Pickaxe
+item.demomod:demoSword.name=Woogie's Sword
+item.demomod:demoFood.name=Woogie's Food
+tile.demomod:demoBlock.name=Woogie's Block
+tile.demomod:demoBlockOre.name=Woogie's Ore
+tile.demomod:demoBlockMultiOre.name=Woogie's Multi Ore
