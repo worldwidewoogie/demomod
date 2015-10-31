@@ -1,0 +1,78 @@
+The following setup instructions are for Linux, and assume you are installing
+into the directory /home/user/src/minecraft.  Similar instructions should work
+for OSX.  I don't user Windows, so I don't have good instructions for that.
+
+These instructions also assume you already have a working eclipse installation,
+and that you have downloaded the latest forge source from:
+
+http://files.minecraftforge.net/minecraftforge/1.8
+
+
+First setup the directory and clone the repository:
+
+mkdir -p ~/src/minecraft
+cd ~/src/minecraft
+git clone git@github.com:worldwidewoogie/demomod.git
+
+
+Next, install the forge source:
+
+cd demomod
+unzip ~/Downloads/forge-1.8-11.14.3.1502-src.zip
+
+When prompted to replace any file, hit 'N'
+
+replace src/main/resources/mcmod.info? [y]es, [n]o, [A]ll, [N]one, [r]ename: N
+
+
+Complete the forge setup process:
+
+./gradlew setupDecompWorkspace
+./gradlew eclipse
+
+
+Remove example mod:
+
+rm -rf src/main/java/com
+
+
+Test it out:
+
+start eclipse
+open workspace /home/user/src/minecraft/demomod/eclipse
+
+
+You should be able to edit the Java project.
+
+
+If you want to edit any of the JSON files, you might want to install
+json tools:
+
+
+Install Marketplace Client
+
+Help/Install New Software
+
+Work with:  --All Available Sites--
+
+Expand "General Purpose Tools"
+Select "Marketplace Client"
+Select "Next >"
+Select "Next >"
+Select "I accept the terms of the license agreement"
+Select "Finish"
+When prompted, restart eclipse
+
+Install json tools:
+
+Help/Eclipse Marketplace...
+Search for "json tools"
+Select "Install"
+Select "Confirm"
+Select "I accept the terms of the licence agreement"
+Select "Finish"
+If you get a security warning about unsigned contect, select "OK"
+When prompted, restart eclipse
+
+
+If you want 
