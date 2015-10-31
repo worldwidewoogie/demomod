@@ -1,10 +1,7 @@
 package net.woogie.demomod.proxy;
 
-import java.awt.Color;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -17,7 +14,6 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -111,6 +107,7 @@ public class CommonProxy implements IProxy {
 		DemoMod.demoBiome = new DemoBiome();
 		BiomeManager.addBiome(Config.biomeType, new BiomeEntry(DemoMod.demoBiome, Config.biomeWeight));
 
+		Config.initRecipes();
 	}
 
 	@Override
@@ -160,38 +157,15 @@ public class CommonProxy implements IProxy {
 
 		GameRegistry.addRecipe(new ItemStack(DemoMod.demoPickaxe, 1), Config.pickaxeRecipe);
 
-		// TODO: figure out why these can't go in Config like the above. ARG!!!!
-		GameRegistry.addRecipe(new ItemStack(DemoMod.demoHelmet, 1),
-				new Object[] { //
-						"XXX", //
-						"X X", //
-						'X', DemoMod.demoItem });
+		GameRegistry.addRecipe(new ItemStack(DemoMod.demoHelmet, 1), Config.helmetRecipe);
 
-		GameRegistry.addRecipe(new ItemStack(DemoMod.demoChestplate, 1),
-				new Object[] { //
-						"X X", //
-						"XXX", //
-						"XXX", //
-						'X', DemoMod.demoItem });
+		GameRegistry.addRecipe(new ItemStack(DemoMod.demoChestplate, 1), Config.chestplateRecipe);
 
-		GameRegistry.addRecipe(new ItemStack(DemoMod.demoLeggings, 1),
-				new Object[] { //
-						"XXX", //
-						"X X", //
-						"X X", //
-						'X', DemoMod.demoItem });
+		GameRegistry.addRecipe(new ItemStack(DemoMod.demoLeggings, 1), Config.leggingsRecipe);
 
-		GameRegistry.addRecipe(new ItemStack(DemoMod.demoBoots, 1),
-				new Object[] { //
-						"X X", //
-						"X X", //
-						'X', DemoMod.demoItem });
+		GameRegistry.addRecipe(new ItemStack(DemoMod.demoBoots, 1), Config.bootsRecipe);
 
-		GameRegistry.addRecipe(new ItemStack(DemoMod.demoFood, 1),
-				new Object[] { //
-						"X  ", //
-						"X  ", //
-						'X', DemoMod.demoItem });
+		GameRegistry.addRecipe(new ItemStack(DemoMod.demoFood, 1), Config.foodRecipe);
 
 		GameRegistry.addSmelting(DemoMod.demoBlock, new ItemStack(DemoMod.demoItem), Config.itemExperience);
 
