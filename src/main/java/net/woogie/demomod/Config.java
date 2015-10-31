@@ -80,6 +80,7 @@ public class Config {
 
 	public static final String swordName = "demoSword";
 	public static final int swordMaxStackSize = 1;
+	public static final boolean swordSummonsLightning = true;
 	public static final boolean swordStartsFire = true;
 	public static final int swordFireSeconds = 5;
 	public static final PotionEffect[] swordEffects = { //
@@ -170,13 +171,13 @@ public class Config {
 	public static final int entityFourmSpawnColorSpots = (new Color(8, 178, 60)).getRGB();
 
 	public static void initRecipes() {
-		
-		itemRecipe =new Object[] { //
-			"S S", //
-			" S ", //
-			"S S", //
-			'S', Items.stick };
-		
+
+		itemRecipe = new Object[] { //
+				"S S", //
+				" S ", //
+				"S S", //
+				'S', Items.stick };
+
 		swordRecipe = new Object[] { //
 				" X ", //
 				" X ", //
