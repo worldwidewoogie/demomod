@@ -4,7 +4,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemFood;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -15,13 +15,13 @@ import net.minecraftforge.common.IPlantable;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
 
-public class DemoSeed extends ItemFood implements IPlantable {
+public class DemoSeed extends Item implements IPlantable {
 	private final IBlockState blockPlant;
 
 	public DemoSeed() {
-		super(Config.seedHealAmount, Config.seedSaturationModifier, false);
+		super();
 		setUnlocalizedName(Config.MODID + ":" + Config.seedName);
-		setCreativeTab(CreativeTabs.tabFood);
+		setCreativeTab(CreativeTabs.tabMaterials);
 		this.blockPlant = DemoMod.demoBlockCrop.getDefaultState();
 	}
 

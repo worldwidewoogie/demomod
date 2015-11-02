@@ -8,7 +8,7 @@ public class DemoItem extends Item {
 
 	public DemoItem() {
 		this.setUnlocalizedName(Config.MODID + ":" + Config.itemName);
-		this.setCreativeTab(CreativeTabs.tabMisc);
+		this.setCreativeTab(CreativeTabs.tabMaterials);
 		this.maxStackSize = Config.itemMaxStackSize;
 	}
 }

@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.woogie.demomod.item.DemoMonsterPlacer;
+import net.woogie.demomod.item.DemoSeed;
 import net.woogie.demomod.proxy.CommonProxy;
 
 @Mod(modid = Config.MODID, name = Config.MODNAME, version = Config.VERSION, acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:Forge@[11.14.3.1450,)")
@@ -49,7 +50,7 @@ public class DemoMod {
 	public static Item demoLeggings;
 	public static Item demoBoots;
 	public static ItemFood demoFood;
-	public static ItemFood demoSeed;
+	public static Item demoSeed;
 	
 	public static BiomeGenBase demoBiome;
 

@@ -142,8 +142,6 @@ public class Config {
 			new PotionEffect(Potion.regeneration.id, 200, 1) };
 
 	public static final String seedName = "demoSeed";
-	public static int seedHealAmount = 10;
-	public static final float seedSaturationModifier = 2F;
 	
 	public static final String blockCropName = "demoBlockCrop";
 
