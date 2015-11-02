@@ -1,5 +1,6 @@
 package net.woogie.demomod.item;
 
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
@@ -35,6 +36,11 @@ public class DemoArmor extends ItemArmor {
 		}
 	}
 
+	@Override
+	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		par1ItemStack.addEnchantment(Config.armorEnchantment, Config.armorEnchantmentLevel);
+	};
+	
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
 		return Config.MODID + ":textures/armor/" + Config.armorName + "_" + (this.armorType == 2 ? "2" : "1") + ".png";

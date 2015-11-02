@@ -6,6 +6,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.init.Blocks;
@@ -94,6 +95,8 @@ public class Config {
 	public static Object[] pickaxeRecipe = null;
 
 	public static final String armorName = "demoArmor";
+	public static final Enchantment armorEnchantment = Enchantment.thorns;
+	public static final int armorEnchantmentLevel = 3;
 
 	public static final String helmetName = "demoHelmet";
 	public static final int helmetMaxStackSize = 1;
