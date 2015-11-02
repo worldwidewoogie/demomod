@@ -10,6 +10,7 @@ item.demomod:demoItem.name=Woogie's Ingot
 item.demomod:demoPickaxe.name=Woogie's Pickaxe
 item.demomod:demoSword.name=Woogie's Sword
 item.demomod:demoFood.name=Woogie's Food
+item.demomod:demoSeed.name=Woogie's Seed
 tile.demomod:demoBlock.name=Woogie's Block
 tile.demomod:demoBlockOre.name=Woogie's Ore
 tile.demomod:demoBlockMultiOre.name=Woogie's Multi Ore

@@ -28,8 +28,10 @@ import net.woogie.demomod.item.DemoFood;
 import net.woogie.demomod.item.DemoItem;
 import net.woogie.demomod.item.DemoMonsterPlacer;
 import net.woogie.demomod.item.DemoPickaxe;
+import net.woogie.demomod.item.DemoSeed;
 import net.woogie.demomod.item.DemoSword;
 import net.woogie.demomod.item.block.DemoBlock;
+import net.woogie.demomod.item.block.DemoBlockCrop;
 import net.woogie.demomod.item.block.DemoBlockMultiOre;
 import net.woogie.demomod.item.block.DemoBlockOre;
 import net.woogie.demomod.network.DemoBiomeIdPacket;
@@ -76,6 +78,9 @@ public class CommonProxy implements IProxy {
 		DemoMod.demoBlockMultiOre = new DemoBlockMultiOre();
 		GameRegistry.registerBlock(DemoMod.demoBlockMultiOre, Config.blockMultiOreName);
 
+		DemoMod.demoBlockCrop = new DemoBlockCrop();
+		GameRegistry.registerBlock(DemoMod.demoBlockCrop, Config.blockCropName);
+
 		DemoMod.demoItem = new DemoItem();
 		GameRegistry.registerItem(DemoMod.demoItem, Config.itemName);
 
@@ -99,6 +104,9 @@ public class CommonProxy implements IProxy {
 
 		DemoMod.demoFood = new DemoFood();
 		GameRegistry.registerItem(DemoMod.demoFood, Config.foodName);
+
+		DemoMod.demoSeed = new DemoSeed();
+		GameRegistry.registerItem(DemoMod.demoSeed, Config.seedName);
 
 		DemoMod.demoFourmMonsterPlacer = new DemoMonsterPlacer(Config.entityFourmName, Config.entityFourmSpawnColorBase,
 				Config.entityFourmSpawnColorSpots);

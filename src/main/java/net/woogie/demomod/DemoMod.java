@@ -40,6 +40,7 @@ public class DemoMod {
 	public static Block demoBlock;
 	public static Block demoBlockOre;
 	public static Block demoBlockMultiOre;
+	public static Block demoBlockCrop;
 	public static Item demoItem;
 	public static ItemSword demoSword;
 	public static ItemPickaxe demoPickaxe;
@@ -48,7 +49,8 @@ public class DemoMod {
 	public static Item demoLeggings;
 	public static Item demoBoots;
 	public static ItemFood demoFood;
-
+	public static ItemFood demoSeed;
+	
 	public static BiomeGenBase demoBiome;
 
 	public static DemoMonsterPlacer demoFourmMonsterPlacer;
