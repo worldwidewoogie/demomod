@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
 
@@ -23,10 +24,6 @@ public class DemoSword extends ItemSword {
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
 		if (!entity.worldObj.isRemote) {
-
-			if (Config.swordStartsFire) {
-				entity.setFire(Config.swordFireSeconds);
-			}
 
 			if (Config.swordSummonsLightning) {
 				entity.worldObj.addWeatherEffect(new EntityLightningBolt(entity.worldObj, (double) entity.posX + 0.5,
@@ -45,5 +42,12 @@ public class DemoSword extends ItemSword {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public void onCreated(ItemStack itemStack, World worldIn, EntityPlayer player) {
+		for (int i = 0; i < Config.swordEnchantments.length; i++) {
+			itemStack.addEnchantment(Config.swordEnchantments[i], Config.swordEnchantmentLevels[i]);
+		}
 	}
 }

@@ -40,16 +40,24 @@ public class DemoArmor extends ItemArmor {
 	public void onCreated(ItemStack itemStack, World worldIn, EntityPlayer player) {
 
 		if (itemStack.getDisplayName().equals(Config.helmetName)) {
-			itemStack.addEnchantment(Config.helmetEnchantment, Config.helmetEnchantmentLevel);
+			for (int i = 0; i < Config.helmetEnchantments.length; i++) {
+				itemStack.addEnchantment(Config.helmetEnchantments[i], Config.helmetEnchantmentLevels[i]);
+			}
 		} else {
 			if (itemStack.getDisplayName().equals(Config.chestplateName)) {
-				itemStack.addEnchantment(Config.chestplateEnchantment, Config.chestplateEnchantmentLevel);
+				for (int i = 0; i < Config.chestplateEnchantments.length; i++) {
+					itemStack.addEnchantment(Config.chestplateEnchantments[i], Config.chestplateEnchantmentLevels[i]);
+				}
 			} else {
 				if (itemStack.getDisplayName().equals(Config.leggingsName)) {
-					itemStack.addEnchantment(Config.leggingsEnchantment, Config.leggingsEnchantmentLevel);
+					for (int i = 0; i < Config.leggingsEnchantments.length; i++) {
+						itemStack.addEnchantment(Config.leggingsEnchantments[i], Config.leggingsEnchantmentLevels[i]);
+					}
 				} else {
 					if (itemStack.getDisplayName().equals(Config.bootsName)) {
-						itemStack.addEnchantment(Config.bootsEnchantment, Config.bootsEnchantmentLevel);
+						for (int i = 0; i < Config.bootsEnchantments.length; i++) {
+							itemStack.addEnchantment(Config.bootsEnchantments[i], Config.bootsEnchantmentLevels[i]);
+						}
 					}
 				}
 			}
