@@ -37,10 +37,25 @@ public class DemoArmor extends ItemArmor {
 	}
 
 	@Override
-	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-		par1ItemStack.addEnchantment(Config.armorEnchantment, Config.armorEnchantmentLevel);
-	};
-	
+	public void onCreated(ItemStack itemStack, World worldIn, EntityPlayer player) {
+
+		if (itemStack.getDisplayName().equals(Config.helmetName)) {
+			itemStack.addEnchantment(Config.helmetEnchantment, Config.helmetEnchantmentLevel);
+		} else {
+			if (itemStack.getDisplayName().equals(Config.chestplateName)) {
+				itemStack.addEnchantment(Config.chestplateEnchantment, Config.chestplateEnchantmentLevel);
+			} else {
+				if (itemStack.getDisplayName().equals(Config.leggingsName)) {
+					itemStack.addEnchantment(Config.leggingsEnchantment, Config.leggingsEnchantmentLevel);
+				} else {
+					if (itemStack.getDisplayName().equals(Config.bootsName)) {
+						itemStack.addEnchantment(Config.bootsEnchantment, Config.bootsEnchantmentLevel);
+					}
+				}
+			}
+		}
+	}
+
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
 		return Config.MODID + ":textures/armor/" + Config.armorName + "_" + (this.armorType == 2 ? "2" : "1") + ".png";

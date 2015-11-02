@@ -95,26 +95,32 @@ public class Config {
 	public static Object[] pickaxeRecipe = null;
 
 	public static final String armorName = "demoArmor";
-	public static final Enchantment armorEnchantment = Enchantment.thorns;
-	public static final int armorEnchantmentLevel = 3;
 
 	public static final String helmetName = "demoHelmet";
 	public static final int helmetMaxStackSize = 1;
+	public static final Enchantment helmetEnchantment = Enchantment.thorns;
+	public static final int helmetEnchantmentLevel = 3;
 	public static final PotionEffect[] helmetEffects = { new PotionEffect(Potion.waterBreathing.id, 200, 0) };
 	public static Object[] helmetRecipe = null;
 
 	public static final String chestplateName = "demoChestplate";
 	public static final int chestplateMaxStackSize = 1;
+	public static final Enchantment chestplateEnchantment = Enchantment.thorns;
+	public static final int chestplateEnchantmentLevel = 3;
 	public static final PotionEffect[] chestplateEffects = { new PotionEffect(Potion.regeneration.id, 200, 0) };
 	public static Object[] chestplateRecipe = null;
 
 	public static final String leggingsName = "demoLeggings";
 	public static final int leggingsMaxStackSize = 1;
+	public static final Enchantment leggingsEnchantment = Enchantment.thorns;
+	public static final int leggingsEnchantmentLevel = 3;
 	public static final PotionEffect[] leggingsEffects = { new PotionEffect(Potion.moveSpeed.id, 1200, 0) };
 	public static Object[] leggingsRecipe = null;
 
 	public static final String bootsName = "demoBoots";
 	public static final int bootsMaxStackSize = 1;
+	public static final Enchantment bootsEnchantment = Enchantment.thorns;
+	public static final int bootsEnchantmentLevel = 3;
 	public static final PotionEffect[] bootsEffects = { new PotionEffect(Potion.jump.id, 600, 0) };
 	public static Object[] bootsRecipe = null;
 
