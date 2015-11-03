@@ -12,7 +12,7 @@ public class DemoBlockCrop extends BlockCrops {
 
 	public DemoBlockCrop() {
 		super();
-		this.setUnlocalizedName(Config.MODID + ":" + Config.blockName);
+		this.setUnlocalizedName(Config.MODID + ":" + Config.blockCropName);
 	}
 
 	protected Item getSeed() {

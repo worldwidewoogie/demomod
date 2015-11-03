@@ -31,6 +31,7 @@ import net.woogie.demomod.item.DemoPickaxe;
 import net.woogie.demomod.item.DemoSeed;
 import net.woogie.demomod.item.DemoSword;
 import net.woogie.demomod.item.block.DemoBlock;
+import net.woogie.demomod.item.block.DemoBlockBush;
 import net.woogie.demomod.item.block.DemoBlockCrop;
 import net.woogie.demomod.item.block.DemoBlockMultiOre;
 import net.woogie.demomod.item.block.DemoBlockOre;
@@ -80,6 +81,9 @@ public class CommonProxy implements IProxy {
 
 		DemoMod.demoBlockCrop = new DemoBlockCrop();
 		GameRegistry.registerBlock(DemoMod.demoBlockCrop, Config.blockCropName);
+
+		DemoMod.demoBlockBush = new DemoBlockBush();
+		GameRegistry.registerBlock(DemoMod.demoBlockBush, Config.blockBushName);
 
 		DemoMod.demoItem = new DemoItem();
 		GameRegistry.registerItem(DemoMod.demoItem, Config.itemName);

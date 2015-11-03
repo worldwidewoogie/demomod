@@ -15,6 +15,10 @@ public class DemoBiome extends BiomeGenBase {
 		this.topBlock = Config.biomeTopBlock.getDefaultState();
 		this.fillerBlock = DemoMod.demoBlockOre.getDefaultState();
 
+		this.theBiomeDecorator = new DemoBiomeDecorator();
+
+		((DemoBiomeDecorator) this.theBiomeDecorator).demoPlantsPerChunk = Config.biomeDemoBushesPerChunk;
+
 		this.theBiomeDecorator.waterlilyPerChunk = Config.biomeWaterlilyPerChunk;
 		this.theBiomeDecorator.treesPerChunk = Config.biomeTreesPerChunk;
 		this.theBiomeDecorator.flowersPerChunk = Config.biomeFlowersPerChunk;
@@ -30,7 +34,7 @@ public class DemoBiome extends BiomeGenBase {
 		this.theBiomeDecorator.generateLakes = true;
 
 		this.spawnableCreatureList.clear();
-		for (SpawnListEntry spawnListEntry: Config.biomeSpawnList) {
+		for (SpawnListEntry spawnListEntry : Config.biomeSpawnList) {
 			this.spawnableCreatureList.add(spawnListEntry);
 		}
 

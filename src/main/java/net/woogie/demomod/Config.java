@@ -142,8 +142,9 @@ public class Config {
 			new PotionEffect(Potion.regeneration.id, 200, 1) };
 
 	public static final String seedName = "demoSeed";
-	
+
 	public static final String blockCropName = "demoBlockCrop";
+	public static final String blockBushName = "demoBlockBush";
 
 	public static Object[] foodRecipe = null;
 
@@ -158,6 +159,7 @@ public class Config {
 	public static final BiomeType biomeType = BiomeType.COOL;
 	public static final int biomeWorldGenerationWeight = 0;
 
+	public static final int biomeDemoBushesPerChunk = 50;
 	public static final int biomeWaterlilyPerChunk = 0;
 	public static final int biomeTreesPerChunk = 10;
 	public static final int biomeFlowersPerChunk = 0;
@@ -172,6 +174,7 @@ public class Config {
 	public static final int biomeBigMushroomsPerChunk = 15;
 	public static final boolean biomeGenerateLakes = true;
 	public static final float biomeMinHeight = 0.1F;
+	// default biomeMaxHeight = 0.2F
 	public static final float biomeMaxHeight = 1.5F;
 	public static final float biomeTemperature = 1.5F;
 	public static final float biomeRainfall = 0.2F;

@@ -1,8 +1,5 @@
 package net.woogie.demomod;
 
-import java.awt.Color;
-
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -18,7 +15,11 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.woogie.demomod.item.DemoMonsterPlacer;
-import net.woogie.demomod.item.DemoSeed;
+import net.woogie.demomod.item.block.DemoBlock;
+import net.woogie.demomod.item.block.DemoBlockBush;
+import net.woogie.demomod.item.block.DemoBlockCrop;
+import net.woogie.demomod.item.block.DemoBlockMultiOre;
+import net.woogie.demomod.item.block.DemoBlockOre;
 import net.woogie.demomod.proxy.CommonProxy;
 
 @Mod(modid = Config.MODID, name = Config.MODNAME, version = Config.VERSION, acceptedMinecraftVersions = "[1.8]", dependencies = "required-after:Forge@[11.14.3.1450,)")
@@ -38,10 +39,11 @@ public class DemoMod {
 			Config.armorMaterialTextureName, Config.armorMaterialDurability, Config.armorMaterialDamageReduction,
 			Config.armorMaterialEnchantability);
 
-	public static Block demoBlock;
-	public static Block demoBlockOre;
-	public static Block demoBlockMultiOre;
-	public static Block demoBlockCrop;
+	public static DemoBlock demoBlock;
+	public static DemoBlockOre demoBlockOre;
+	public static DemoBlockMultiOre demoBlockMultiOre;
+	public static DemoBlockCrop demoBlockCrop;
+	public static DemoBlockBush demoBlockBush;
 	public static Item demoItem;
 	public static ItemSword demoSword;
 	public static ItemPickaxe demoPickaxe;
@@ -51,7 +53,7 @@ public class DemoMod {
 	public static Item demoBoots;
 	public static ItemFood demoFood;
 	public static Item demoSeed;
-	
+
 	public static BiomeGenBase demoBiome;
 
 	public static DemoMonsterPlacer demoFourmMonsterPlacer;
