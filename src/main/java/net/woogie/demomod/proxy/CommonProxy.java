@@ -25,6 +25,7 @@ import net.woogie.demomod.entity.fourm.ModelFourm;
 import net.woogie.demomod.entity.fourm.RenderFourm;
 import net.woogie.demomod.item.DemoArmor;
 import net.woogie.demomod.item.DemoFood;
+import net.woogie.demomod.item.DemoHoe;
 import net.woogie.demomod.item.DemoItem;
 import net.woogie.demomod.item.DemoMonsterPlacer;
 import net.woogie.demomod.item.DemoPickaxe;
@@ -94,6 +95,9 @@ public class CommonProxy implements IProxy {
 		DemoMod.demoPickaxe = new DemoPickaxe();
 		GameRegistry.registerItem(DemoMod.demoPickaxe, Config.pickaxeName);
 
+		DemoMod.demoHoe = new DemoHoe();
+		GameRegistry.registerItem(DemoMod.demoHoe, Config.hoeName);
+
 		DemoMod.demoHelmet = new DemoArmor(Config.helmetName);
 		GameRegistry.registerItem(DemoMod.demoHelmet, Config.helmetName);
 
@@ -136,6 +140,10 @@ public class CommonProxy implements IProxy {
 				Item.getItemFromBlock(DemoMod.demoBlockMultiOre), 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.blockMultiOreName, "inventory"));
 
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(
+				Item.getItemFromBlock(DemoMod.demoBlockBush), 0,
+				new ModelResourceLocation(Config.MODID + ":" + Config.blockBushName, "inventory"));
+
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoItem, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.itemName, "inventory"));
 
@@ -144,6 +152,9 @@ public class CommonProxy implements IProxy {
 
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoPickaxe, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.pickaxeName, "inventory"));
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoHoe, 0,
+				new ModelResourceLocation(Config.MODID + ":" + Config.hoeName, "inventory"));
 
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoHelmet, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.helmetName, "inventory"));
@@ -160,10 +171,11 @@ public class CommonProxy implements IProxy {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoFood, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.foodName, "inventory"));
 
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoSeed, 0,
+				new ModelResourceLocation(Config.MODID + ":" + Config.seedName, "inventory"));
+
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoFourmMonsterPlacer, 0,
 				new ModelResourceLocation(Config.MODID + ":spawn_" + Config.entityFourmName, "inventory"));
-
-		GameRegistry.addRecipe(new ItemStack(DemoMod.demoItem), Config.itemRecipe);
 
 		GameRegistry.addRecipe(new ItemStack(DemoMod.demoSword, 1), Config.swordRecipe);
 
@@ -176,8 +188,6 @@ public class CommonProxy implements IProxy {
 		GameRegistry.addRecipe(new ItemStack(DemoMod.demoLeggings, 1), Config.leggingsRecipe);
 
 		GameRegistry.addRecipe(new ItemStack(DemoMod.demoBoots, 1), Config.bootsRecipe);
-
-		GameRegistry.addRecipe(new ItemStack(DemoMod.demoFood, 1), Config.foodRecipe);
 
 		GameRegistry.addSmelting(DemoMod.demoBlock, new ItemStack(DemoMod.demoItem), Config.itemExperience);
 

@@ -101,6 +101,12 @@ public class Config {
 	public static final int[] pickaxeEnchantmentLevels = { 3, 3 };
 	public static Object[] pickaxeRecipe = null;
 
+	public static final String hoeName = "demoHoe";
+	public static final int hoeMaxStackSize = 1;
+	public static final Enchantment[] hoeEnchantments = { Enchantment.unbreaking };
+	public static final int[] hoeEnchantmentLevels = { 3, 3 };
+	public static Object[] hoeRecipe = null;
+
 	public static final String armorName = "demoArmor";
 
 	public static final String helmetName = "demoHelmet";
@@ -145,8 +151,6 @@ public class Config {
 
 	public static final String blockCropName = "demoBlockCrop";
 	public static final String blockBushName = "demoBlockBush";
-
-	public static Object[] foodRecipe = null;
 
 	public static final String biomeIdConfigName = "demo_biome_id";
 	public static final int defaultBiomeId = -1;
@@ -196,25 +200,26 @@ public class Config {
 
 	public static void initRecipes() {
 
-		itemRecipe = new Object[] { //
-				"S S", //
-				" S ", //
-				"S S", //
-				'S', Items.stick };
-
 		swordRecipe = new Object[] { //
 				" X ", //
 				" X ", //
 				" S ", //
 				'S', Items.stick, //
-				'X', Items.blaze_rod };
+				'X', DemoMod.demoItem };
 
 		pickaxeRecipe = new Object[] { //
 				"XXX", //
-				" X ", //
+				" S ", //
 				" S ", //
 				'S', Items.stick, //
-				'X', Items.blaze_rod };
+				'X', DemoMod.demoItem };
+
+		hoeRecipe = new Object[] { //
+				"XX ", //
+				" S ", //
+				" S ", //
+				'S', Items.stick, //
+				'X', DemoMod.demoItem };
 
 		helmetRecipe = new Object[] { //
 				"XXX", //
@@ -238,9 +243,5 @@ public class Config {
 				"X X", //
 				'X', DemoMod.demoItem };
 
-		foodRecipe = new Object[] { //
-				"X  ", //
-				"X  ", //
-				'X', DemoMod.demoItem };
 	}
 }

@@ -1,6 +1,7 @@
 package net.woogie.demomod.item;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -12,6 +13,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
 
@@ -55,4 +58,5 @@ public class DemoSeed extends Item implements IPlantable {
 	public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
 		return this.blockPlant;
 	}
+
 }

@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -47,6 +48,7 @@ public class DemoMod {
 	public static Item demoItem;
 	public static ItemSword demoSword;
 	public static ItemPickaxe demoPickaxe;
+	public static ItemHoe demoHoe;
 	public static Item demoHelmet;
 	public static Item demoChestplate;
 	public static Item demoLeggings;
