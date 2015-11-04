@@ -8,6 +8,7 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagLong;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.ModelBakeEvent;
 import net.woogie.demomod.Config;
 
 public class DemoBow extends ItemBow {
@@ -27,17 +28,27 @@ public class DemoBow extends ItemBow {
 
 	@Override
 	public ModelResourceLocation getModel(ItemStack stack, EntityPlayer player, int useRemaining) {
-		ModelResourceLocation modelresourcelocation = new ModelResourceLocation(getUnlocalizedName(), "inventory");
 
-		if (stack.getItem() == this && player.getItemInUse() != null) {
-			if (useRemaining >= 18) {
-				modelresourcelocation = new ModelResourceLocation(getUnlocalizedName() + "_2", "inventory");
-			} else if (useRemaining > 13) {
-				modelresourcelocation = new ModelResourceLocation(getUnlocalizedName() + "_1", "inventory");
-			} else if (useRemaining > 0) {
-				modelresourcelocation = new ModelResourceLocation(getUnlocalizedName() + "_0", "inventory");
+		ModelResourceLocation modelResourceLocation = new ModelResourceLocation(Config.MODID + ":" + Config.bowName,
+				"inventory");
+
+		useRemaining = 72000 - useRemaining;
+
+		if (player.getItemInUse() != null) {
+			if (stack.getItem() == this && player.getItemInUse() != null) {
+				if (useRemaining >= 18) {
+					modelResourceLocation = new ModelResourceLocation(Config.MODID + ":" + Config.bowName + "_2",
+							"inventory");
+				} else if (useRemaining > 13) {
+					modelResourceLocation = new ModelResourceLocation(Config.MODID + ":" + Config.bowName + "_1",
+							"inventory");
+				} else if (useRemaining > 0) {
+					modelResourceLocation = new ModelResourceLocation(Config.MODID + ":" + Config.bowName + "_0",
+							"inventory");
+				}
 			}
 		}
-		return modelresourcelocation;
+
+		return modelResourceLocation;
 	}
 }
