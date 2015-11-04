@@ -104,8 +104,26 @@ public class Config {
 	public static final String hoeName = "demoHoe";
 	public static final int hoeMaxStackSize = 1;
 	public static final Enchantment[] hoeEnchantments = { Enchantment.unbreaking };
-	public static final int[] hoeEnchantmentLevels = { 3, 3 };
+	public static final int[] hoeEnchantmentLevels = { 3 };
 	public static Object[] hoeRecipe = null;
+
+	public static final String shovelName = "demoShovel";
+	public static final int shovelMaxStackSize = 1;
+	public static final Enchantment[] shovelEnchantments = { Enchantment.efficiency, Enchantment.silkTouch };
+	public static final int[] shovelEnchantmentLevels = { 3, 3 };
+	public static Object[] shovelRecipe = null;
+
+	public static final String axeName = "demoAxe";
+	public static final int axeMaxStackSize = 1;
+	public static final Enchantment[] axeEnchantments = { Enchantment.efficiency, Enchantment.silkTouch };
+	public static final int[] axeEnchantmentLevels = { 3, 3 };
+	public static Object[] axeRecipe = null;
+
+	public static final String bowName = "demoBow";
+	public static final int bowMaxStackSize = 1;
+	public static final Enchantment[] bowEnchantments = { Enchantment.flame, Enchantment.infinity };
+	public static final int[] bowEnchantmentLevels = { 3, 3 };
+	public static Object[] bowRecipe = null;
 
 	public static final String armorName = "demoArmor";
 
@@ -219,6 +237,27 @@ public class Config {
 				" S ", //
 				" S ", //
 				'S', Items.stick, //
+				'X', DemoMod.demoItem };
+
+		shovelRecipe = new Object[] { //
+				" X ", //
+				" S ", //
+				" S ", //
+				'S', Items.stick, //
+				'X', DemoMod.demoItem };
+
+		axeRecipe = new Object[] { //
+				"XX ", //
+				"XS ", //
+				" S ", //
+				'S', Items.stick, //
+				'X', DemoMod.demoItem };
+
+		bowRecipe = new Object[] { //
+				" XS", //
+				"X S", //
+				" XS", //
+				'S', Items.string, //
 				'X', DemoMod.demoItem };
 
 		helmetRecipe = new Object[] { //
