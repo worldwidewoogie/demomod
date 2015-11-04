@@ -14,7 +14,7 @@ public class DemoBow extends ItemBow {
 	public DemoBow() {
 		super();
 		setUnlocalizedName(Config.MODID + ":" + Config.bowName);
-		setCreativeTab(CreativeTabs.tabTools);
+		setCreativeTab(CreativeTabs.tabCombat);
 		this.maxStackSize = Config.bowMaxStackSize;
 	}
 
@@ -25,34 +25,19 @@ public class DemoBow extends ItemBow {
 		}
 	}
 
-	private long getLastUseTime(ItemStack stack) {
-		return stack.hasTagCompound() ? stack.getTagCompound().getLong("LastUse") : 0;
-	}
-
-	private void setLastUseTime(ItemStack stack, long time) {
-		stack.setTagInfo("LastUse", new NBTTagLong(time));
-	}
-
 	@Override
 	public ModelResourceLocation getModel(ItemStack stack, EntityPlayer player, int useRemaining) {
+		ModelResourceLocation modelresourcelocation = new ModelResourceLocation(getUnlocalizedName(), "inventory");
 
-		long ticksSinceLastUse = this.getLastUseTime(stack);
-
-		if (ticksSinceLastUse >= 60) {
-			return new ModelResourceLocation(getUnlocalizedName() + "_pulling_2", "inventory");
-		} else if (ticksSinceLastUse >= 40) {
-			return new ModelResourceLocation(getUnlocalizedName() + "_pulling_1", "inventory");
-		} else if (ticksSinceLastUse >= 20) {
-			return new ModelResourceLocation(getUnlocalizedName() + "_pulling_0", "inventory");
-		} else {
-			return new ModelResourceLocation(getUnlocalizedName(), "inventory");
+		if (stack.getItem() == this && player.getItemInUse() != null) {
+			if (useRemaining >= 18) {
+				modelresourcelocation = new ModelResourceLocation(getUnlocalizedName() + "_2", "inventory");
+			} else if (useRemaining > 13) {
+				modelresourcelocation = new ModelResourceLocation(getUnlocalizedName() + "_1", "inventory");
+			} else if (useRemaining > 0) {
+				modelresourcelocation = new ModelResourceLocation(getUnlocalizedName() + "_0", "inventory");
+			}
 		}
-	}
-
-	@Override
-	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn) {
-		setLastUseTime(itemStackIn, worldIn.getTotalWorldTime());
-
-		return super.onItemRightClick(itemStackIn, worldIn, playerIn);
+		return modelresourcelocation;
 	}
 }

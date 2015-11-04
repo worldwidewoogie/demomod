@@ -10,6 +10,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -110,9 +111,6 @@ public class CommonProxy implements IProxy {
 
 		DemoMod.demoBow = new DemoBow();
 		GameRegistry.registerItem(DemoMod.demoBow, Config.bowName);
-        ModelBakery.addVariantName(DemoMod.demoBow, Config.MODID + ":" + Config.bowName + "_0"); 
-        ModelBakery.addVariantName(DemoMod.demoBow, Config.MODID + ":" + Config.bowName + "_1"); 
-        ModelBakery.addVariantName(DemoMod.demoBow, Config.MODID + ":" + Config.bowName + "_2"); 
 
 		DemoMod.demoHelmet = new DemoArmor(Config.helmetName);
 		GameRegistry.registerItem(DemoMod.demoHelmet, Config.helmetName);
@@ -177,6 +175,22 @@ public class CommonProxy implements IProxy {
 
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoAxe, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.axeName, "inventory"));
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoBow, 0,
+				new ModelResourceLocation(Config.MODID + ":" + Config.bowName, "inventory"));
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoBow, 1,
+				new ModelResourceLocation(Config.MODID + ":" + Config.bowName + "_0", "inventory"));
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoBow, 2,
+				new ModelResourceLocation(Config.MODID + ":" + Config.bowName + "_1", "inventory"));
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoBow, 3,
+				new ModelResourceLocation(Config.MODID + ":" + Config.bowName + "_2", "inventory"));
+
+		ModelBakery.addVariantName(DemoMod.demoBow, Config.MODID + ":" + Config.bowName,
+				Config.MODID + ":" + Config.bowName + "_0", Config.MODID + ":" + Config.bowName + "_1",
+				Config.MODID + ":" + Config.bowName + "_2");
 
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoHelmet, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.helmetName, "inventory"));
