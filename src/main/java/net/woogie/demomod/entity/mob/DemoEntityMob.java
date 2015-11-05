@@ -72,8 +72,8 @@ public class DemoEntityMob extends EntityMob {
 	protected void dropFewItems(boolean recentlyHitByPlayer, int lootingLevel) {
 		if (recentlyHitByPlayer) {
 
-			int j = this.rand.nextInt(3) + this.rand.nextInt(2 + lootingLevel);
-
+			int j = this.rand.nextInt(Config.entityMobDropBonus + lootingLevel) + Config.entityMobBaseDrops;
+			
 			for (int k = 0; k < j; ++k) {
 				this.dropItem(DemoMod.demoItem, 1);
 			}

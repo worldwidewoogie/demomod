@@ -228,6 +228,9 @@ public class Config {
 	public static final double entityMobAIAttackOnCollideSpeed = 1.0D;
 	public static final double entityMobAIWanderSpeed = 0.8D;
 	public static final float entityMobAIWatchClosestDistance = 8.0F;
+	public static final int entityMobBaseDrops = 3;
+	public static final int entityMobDropBonus = 2;
+	
 	
 	public static void initRecipes() {
 
