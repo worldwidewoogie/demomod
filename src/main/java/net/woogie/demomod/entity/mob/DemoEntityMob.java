@@ -16,6 +16,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.woogie.demomod.Config;
+import net.woogie.demomod.DemoMod;
 import net.woogie.demomod.entity.tameable.DemoEntityTameable;
 
 public class DemoEntityMob extends EntityMob {
@@ -67,4 +68,15 @@ public class DemoEntityMob extends EntityMob {
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(Config.entityMobAttackDamage);
 	}
 
+	@Override
+	protected void dropFewItems(boolean recentlyHitByPlayer, int lootingLevel) {
+		if (recentlyHitByPlayer) {
+
+			int j = this.rand.nextInt(3) + this.rand.nextInt(2 + lootingLevel);
+
+			for (int k = 0; k < j; ++k) {
+				this.dropItem(DemoMod.demoItem, 1);
+			}
+		}
+	}
 }
