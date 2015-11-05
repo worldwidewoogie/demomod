@@ -18,6 +18,6 @@ The following are planned and/or being worked on:
 
 All the attributes of the mod can be changed by editing the following:
 
-* /src/net/woogie/demomod/Config.java
-* /resources/assets/demomod/lang/en_US.lang
-* the texture files under /assets/demomod/textures
+* https://github.com/worldwidewoogie/demomod/blob/master/src/main/java/net/woogie/demomod/Config.java
+* https://github.com/worldwidewoogie/demomod/blob/master/src/main/resources/assets/demomod/lang/en_US.lang
+* the texture files under https://github.com/worldwidewoogie/demomod/tree/master/src/main/resources/assets/demomod/textures
