@@ -1,5 +1,5 @@
 {
-    "parent":"demomod:block/demoBlockCrop_stage7",
+    "parent":"demomod:block/demoBlockBush",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

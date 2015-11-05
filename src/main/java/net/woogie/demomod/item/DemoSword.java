@@ -16,7 +16,7 @@ public class DemoSword extends ItemSword {
 	public DemoSword() {
 		super(DemoMod.demoToolMaterial);
 		setUnlocalizedName(Config.MODID + ":" + Config.swordName);
-		setCreativeTab(CreativeTabs.tabTools);
+		setCreativeTab(CreativeTabs.tabCombat);
 		this.maxStackSize = Config.swordMaxStackSize;
 	}
 
