@@ -9,10 +9,10 @@ The mod currently includes the following:
 * A custom ingot dropped by the ore
 * A custom sword, bow, pickaxe, axe, hoe, and shovel
 * A custom set of armor
+* A custom hostile mob entity
 
 The following are planned and/or being worked on:
 
-* A custom aggressive mob entity
 * A tamable mob entity
 * A build script to produce a working mod jar file
 
