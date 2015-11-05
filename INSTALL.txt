@@ -1,6 +1,6 @@
 The following setup instructions are for Linux, and assume you are installing
 into the directory /home/user/src/minecraft.  Similar instructions should work
-for OSX.  I don't user Windows, so I don't have good instructions for that.
+for OSX.  I don't use Windows, so I don't have good instructions for that.
 
 These instructions also assume you already have a working eclipse installation,
 and that you have downloaded the latest forge source from:
@@ -74,5 +74,3 @@ Select "Finish"
 If you get a security warning about unsigned contect, select "OK"
 When prompted, restart eclipse
 
-
-If you want 
