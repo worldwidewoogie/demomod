@@ -16,7 +16,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
-import net.woogie.demomod.entity.fourm.EntityFourm;
+import net.woogie.demomod.entity.mob.DemoEntityMob;
 
 public class Config {
 
@@ -205,16 +205,16 @@ public class Config {
 			// new SpawnListEntry(EntityToSpawn.class, spawnRate, spawnMin,
 			// spawnMax);
 			new SpawnListEntry(EntityMooshroom.class, 25, 4, 8);
-			new SpawnListEntry(EntityFourm.class, 25, 4, 8);
+			new SpawnListEntry(DemoEntityMob.class, 25, 4, 8);
 		}
 	};
 
-	public static final String entityFourmName = "demoFourm";
-	public static final int entityFourmId = 1;
-	public static final EnumCreatureType entityFourmType = EnumCreatureType.CREATURE;
-	public static final float entityFourmShadowSize = 0.3F;
-	public static final int entityFourmSpawnColorBase = (new Color(0, 0, 0)).getRGB();
-	public static final int entityFourmSpawnColorSpots = (new Color(8, 178, 60)).getRGB();
+	public static final String entityMobName = "demoMob";
+	public static final int entityMobId = 1;
+	public static final EnumCreatureType entityMobType = EnumCreatureType.CREATURE;
+	public static final float entityMobShadowSize = 0.3F;
+	public static final int entityMobSpawnColorBase = (new Color(0, 0, 0)).getRGB();
+	public static final int entityMobSpawnColorSpots = (new Color(8, 178, 60)).getRGB();
 
 	public static void initRecipes() {
 

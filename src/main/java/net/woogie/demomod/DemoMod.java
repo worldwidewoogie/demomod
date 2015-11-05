@@ -64,7 +64,7 @@ public class DemoMod {
 
 	public static BiomeGenBase demoBiome;
 
-	public static DemoMonsterPlacer demoFourmMonsterPlacer;
+	public static DemoMonsterPlacer demoMobMonsterPlacer;
 
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {

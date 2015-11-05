@@ -22,9 +22,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
 import net.woogie.demomod.biome.DemoBiome;
-import net.woogie.demomod.entity.fourm.EntityFourm;
-import net.woogie.demomod.entity.fourm.ModelFourm;
-import net.woogie.demomod.entity.fourm.RenderFourm;
+import net.woogie.demomod.entity.mob.DemoEntityMob;
+import net.woogie.demomod.entity.mob.DemoModelMob;
+import net.woogie.demomod.entity.mob.DemoRenderMob;
 import net.woogie.demomod.item.DemoArmor;
 import net.woogie.demomod.item.DemoAxe;
 import net.woogie.demomod.item.DemoBow;
@@ -130,9 +130,9 @@ public class CommonProxy implements IProxy {
 		DemoMod.demoSeed = new DemoSeed();
 		GameRegistry.registerItem(DemoMod.demoSeed, Config.seedName);
 
-		DemoMod.demoFourmMonsterPlacer = new DemoMonsterPlacer(Config.entityFourmName, Config.entityFourmSpawnColorBase,
-				Config.entityFourmSpawnColorSpots);
-		GameRegistry.registerItem(DemoMod.demoFourmMonsterPlacer, "spawn_" + Config.entityFourmName);
+		DemoMod.demoMobMonsterPlacer = new DemoMonsterPlacer(Config.entityMobName, Config.entityMobSpawnColorBase,
+				Config.entityMobSpawnColorSpots);
+		GameRegistry.registerItem(DemoMod.demoMobMonsterPlacer, "spawn_" + Config.entityMobName);
 
 		DemoMod.demoBiome = new DemoBiome();
 		BiomeManager.addBiome(Config.biomeType, new BiomeEntry(DemoMod.demoBiome, Config.biomeWeight));
@@ -201,8 +201,8 @@ public class CommonProxy implements IProxy {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoSeed, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.seedName, "inventory"));
 
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoFourmMonsterPlacer, 0,
-				new ModelResourceLocation(Config.MODID + ":spawn_" + Config.entityFourmName, "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoMobMonsterPlacer, 0,
+				new ModelResourceLocation(Config.MODID + ":spawn_" + Config.entityMobName, "inventory"));
 
 		GameRegistry.addRecipe(new ItemStack(DemoMod.demoSword, 1), Config.swordRecipe);
 
@@ -228,16 +228,16 @@ public class CommonProxy implements IProxy {
 
 		GameRegistry.registerWorldGenerator(new DemoWorldGenerator(), Config.biomeWorldGenerationWeight);
 
-		EntityRegistry.registerModEntity(EntityFourm.class, Config.entityFourmName, Config.entityFourmId,
+		EntityRegistry.registerModEntity(DemoEntityMob.class, Config.entityMobName, Config.entityMobId,
 				DemoMod.instance, 64, 1, true);
 
 		// EntityRegistry.addSpawn(EntityToSpawn.class, weightedProb, min, max,
 		// typeOfCreature, BiomeGenBase... biomes)
-		EntityRegistry.addSpawn(EntityFourm.class, 5, 1, 2, Config.entityFourmType, BiomeGenBase.desert,
+		EntityRegistry.addSpawn(DemoEntityMob.class, 5, 1, 2, Config.entityMobType, BiomeGenBase.desert,
 				DemoMod.demoBiome);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityFourm.class, new RenderFourm(
-				Minecraft.getMinecraft().getRenderManager(), new ModelFourm(), Config.entityFourmShadowSize));
+		RenderingRegistry.registerEntityRenderingHandler(DemoEntityMob.class, new DemoRenderMob(
+				Minecraft.getMinecraft().getRenderManager(), new DemoModelMob(), Config.entityMobShadowSize));
 
 	}
 

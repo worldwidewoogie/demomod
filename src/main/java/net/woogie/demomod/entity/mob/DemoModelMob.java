@@ -1,11 +1,11 @@
-package net.woogie.demomod.entity.fourm;
+package net.woogie.demomod.entity.mob;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-public class ModelFourm extends ModelBase {
+public class DemoModelMob extends ModelBase {
 	// fields
 	ModelRenderer head;
 	ModelRenderer body;
@@ -16,7 +16,7 @@ public class ModelFourm extends ModelBase {
 	ModelRenderer leftarm2;
 	ModelRenderer rightarm2;
 
-	public ModelFourm() {
+	public DemoModelMob() {
 		textureWidth = 68;
 		textureHeight = 74;
 

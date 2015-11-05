@@ -1,5 +1,5 @@
-entity.demoFourm.name=Demo Fourm
-item.demomod:spawn_demoFourm.name=Spawn Demo Fourm
+entity.demoMob.name=Demo Mob
+item.demomod:spawn_demoMob.name=Spawn Demo Mob
 item.demomod:demoHelmet.name=Demo Helmet
 item.demomod:demoChestplate.name=Demo Chestplate
 item.demomod:demoLeggings.name=Demo Leggings
