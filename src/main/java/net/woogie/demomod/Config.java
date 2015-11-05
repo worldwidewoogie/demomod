@@ -197,14 +197,13 @@ public class Config {
 	public static final boolean biomeGenerateLakes = true;
 	public static final float biomeMinHeight = 0.1F;
 	// default biomeMaxHeight = 0.2F
-	public static final float biomeMaxHeight = 1.5F;
+	public static final float biomeMaxHeight = 0.2F;
 	public static final float biomeTemperature = 1.5F;
 	public static final float biomeRainfall = 0.2F;
 	public static final List<SpawnListEntry> biomeSpawnList = new ArrayList<SpawnListEntry>() {
 		{
 			// new SpawnListEntry(EntityToSpawn.class, spawnRate, spawnMin,
 			// spawnMax);
-			new SpawnListEntry(EntityMooshroom.class, 25, 4, 8);
 			new SpawnListEntry(DemoEntityMob.class, 25, 4, 8);
 		}
 	};
@@ -215,7 +214,21 @@ public class Config {
 	public static final float entityMobShadowSize = 0.3F;
 	public static final int entityMobSpawnColorBase = (new Color(0, 0, 0)).getRGB();
 	public static final int entityMobSpawnColorSpots = (new Color(8, 178, 60)).getRGB();
-
+	public static final int entityMobExperience = 5;
+	public static final double entityMobMaxHealth = 35.0D;
+	public static final double entityMobFollowRange = 32.0D;
+	public static final double entityMobKnockbackResistance = 0.0D;
+	public static final double entityMobMovementSpeed = 0.5D;
+	public static final double entityMobAttackDamage = 7.0D;
+	public static final boolean entityMobCanSwim = true;
+	public static final boolean entityMobAvoidDemoEntityTameable = true;
+	public static final float entityMobAvoidDemoEntityTameableRange = 6.0F;
+	public static final double entityMobAvoidDemoEntityTameableFarSpeed = 1.0D;
+	public static final double entityMobAvoidDemoEntityTameableNearSpeed = 1.2D;
+	public static final double entityMobAIAttackOnCollideSpeed = 1.0D;
+	public static final double entityMobAIWanderSpeed = 0.8D;
+	public static final float entityMobAIWatchClosestDistance = 8.0F;
+	
 	public static void initRecipes() {
 
 		swordRecipe = new Object[] { //
