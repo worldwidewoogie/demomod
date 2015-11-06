@@ -22,6 +22,9 @@ public class DemoBlockMultiOre extends Block {
 		this.setResistance(Config.blockResistance);
 		this.setUnlocalizedName(Config.MODID + ":" + Config.blockMultiOreName);
 		this.setCreativeTab(CreativeTabs.tabBlock);
+		if (Config.blockLightLevel != 0.0F) {
+			this.setLightLevel(Config.blockLightLevel);
+		}
 	}
 
 	@Override

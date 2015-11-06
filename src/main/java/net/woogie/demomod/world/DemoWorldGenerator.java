@@ -20,7 +20,7 @@ public class DemoWorldGenerator implements IWorldGenerator {
 	public DemoWorldGenerator() {
 
 		this.genWoogieBlockOre = new WorldGenMinable(DemoMod.demoBlockOre.getDefaultState(),
-				Config.blockOreDropCount);
+				Config.blockDropMax);
 		this.genWoogieBlockMultiOre = new DemoGenSingleMinable(DemoMod.demoBlockMultiOre.getDefaultState());
 	}
 

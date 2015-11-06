@@ -27,8 +27,7 @@ public class Config {
 
 	// Changing the name can have unintended consequences
 	public static final String toolMaterialName = "demoToolMaterial";
-
-	// Level of the tool needed to harvest the block (0-3). Higher is harder
+	// Level of the tool needed to harvest the material (0-3). Higher is harder
 	//
 	// Examples:
 	//
@@ -107,28 +106,61 @@ public class Config {
 
 	// Changing the name can have unintended consequences
 	public static final String itemName = "demoItem";
+	// Max stack size in inventory
 	public static final int itemMaxStackSize = 64;
+	// Don't change this. Recipes are defined below
 	public static Object[] itemRecipe = null;
+	// Experience gained for this item
 	public static final float itemExperience = 1.0F;
 
 	// Changing the name can have unintended consequences
 	public static final String blockName = "demoBlock";
+	// The block's base material
 	public static final Material blockParentMaterial = Material.rock;
+	// The amount of light the block emits. If it is 0.0F, the block will not
+	// emit any light
+	public static final float blockLightLevel = 1.0F;
+	// The blocks hardness.
+	//
+	// Examples:
+	// stone: 1.5F
+	// obsidian: 50.0F
 	public static final float blockHardness = 10.0F;
+	// The blocks resistance to explosions
+	//
+	// Examples
+	// stone:10.0F
+	// obsidian:2000.0F
 	public static final float blockResistance = 15.0F;
+	// you probably don't want to change this
 	public static final String blockMineTool = Config.MODID + "." + Config.pickaxeName;
+	// Level needed to harvest the block
+	// Examples:
+	//
+	// wood: 0
+	// stone: 1
+	// iron: 2
+	// diamond: 3
+	// gold: 0
 	public static final int blockMineLevel = 1;
+	// Maximum number of Demo Items the block will drop when mined
 	public static final int blockDropMax = 7;
+	// Minimum number of Demo Items the block will drop when mined
 	public static final int blockDropMin = 2;
+	// If the block is the multi-ore, the extra type of item it will drop
 	public static final Item blockMultiDropItem = Items.gold_nugget;
+	// Maximum number of extra items the block will drop when mined
 	public static final int blockMultiDropMax = 7;
+	// Minimum number of extra items the block will drop when mined
 	public static final int blockMultiDropMin = 2;
+	// Rarely, the multi ore will drop a bonus item
+	// What is the bonus item?
 	public static final Item blockMultiDropBonusItem = Items.diamond;
+	// What is the chance it will drop the bonus item?
 	public static final float blockMultiDropBonusChance = 0.1F;
 
 	// Changing the name can have unintended consequences
 	public static final String blockOreName = "demoBlockOre";
-	public static final int blockOreDropCount = 8;
 	public static final int blockOreChancesToSpawn = 20;
 	public static final int blockOreMinHeight = 0;
 	public static final int blockOreMaxHeight = 64;
@@ -141,6 +173,7 @@ public class Config {
 
 	// Changing the name can have unintended consequences
 	public static final String swordName = "demoSword";
+	// Max stack size in inventory
 	public static final int swordMaxStackSize = 1;
 	public static final boolean swordSummonsLightning = true;
 	public static final PotionEffect[] swordEffects = { //
@@ -149,10 +182,12 @@ public class Config {
 			new PotionEffect(Potion.weakness.id, 200, 1) };
 	public static final Enchantment[] swordEnchantments = { Enchantment.sharpness, Enchantment.fireAspect };
 	public static final int[] swordEnchantmentLevels = { 3, 3 };
+	// Don't change this. Recipes are defined below
 	public static Object[] swordRecipe = null;
 
 	// Changing the name can have unintended consequences
 	public static final String pickaxeName = "demoPickaxe";
+	// Max stack size in inventory
 	public static final int pickaxeMaxStackSize = 1;
 	public static final boolean pickaxeSummonsLightning = true;
 	public static final PotionEffect[] pickaxeEffects = { //
@@ -161,10 +196,12 @@ public class Config {
 			new PotionEffect(Potion.weakness.id, 200, 1) };
 	public static final Enchantment[] pickaxeEnchantments = { Enchantment.efficiency, Enchantment.fortune };
 	public static final int[] pickaxeEnchantmentLevels = { 3, 3 };
+	// Don't change this. Recipes are defined below
 	public static Object[] pickaxeRecipe = null;
 
 	// Changing the name can have unintended consequences
 	public static final String hoeName = "demoHoe";
+	// Max stack size in inventory
 	public static final int hoeMaxStackSize = 1;
 	public static final Enchantment[] hoeEnchantments = { Enchantment.unbreaking };
 	public static final int[] hoeEnchantmentLevels = { 3 };
@@ -172,23 +209,29 @@ public class Config {
 
 	// Changing the name can have unintended consequences
 	public static final String shovelName = "demoShovel";
+	// Max stack size in inventory
 	public static final int shovelMaxStackSize = 1;
 	public static final Enchantment[] shovelEnchantments = { Enchantment.efficiency, Enchantment.silkTouch };
 	public static final int[] shovelEnchantmentLevels = { 3, 3 };
+	// Don't change this. Recipes are defined below
 	public static Object[] shovelRecipe = null;
 
 	// Changing the name can have unintended consequences
 	public static final String axeName = "demoAxe";
+	// Max stack size in inventory
 	public static final int axeMaxStackSize = 1;
 	public static final Enchantment[] axeEnchantments = { Enchantment.efficiency, Enchantment.silkTouch };
 	public static final int[] axeEnchantmentLevels = { 3, 3 };
+	// Don't change this. Recipes are defined below
 	public static Object[] axeRecipe = null;
 
 	// Changing the name can have unintended consequences
 	public static final String bowName = "demoBow";
+	// Max stack size in inventory
 	public static final int bowMaxStackSize = 1;
 	public static final Enchantment[] bowEnchantments = { Enchantment.flame, Enchantment.infinity };
 	public static final int[] bowEnchantmentLevels = { 3, 3 };
+	// Don't change this. Recipes are defined below
 	public static Object[] bowRecipe = null;
 
 	// Changing the name can have unintended consequences
@@ -196,38 +239,47 @@ public class Config {
 
 	// Changing the name can have unintended consequences
 	public static final String helmetName = "demoHelmet";
+	// Max stack size in inventory
 	public static final int helmetMaxStackSize = 1;
 	public static final Enchantment[] helmetEnchantments = { Enchantment.thorns };
 	public static final int[] helmetEnchantmentLevels = { 3 };
 	public static final PotionEffect[] helmetEffects = { new PotionEffect(Potion.waterBreathing.id, 200, 0) };
+	// Don't change this. Recipes are defined below
 	public static Object[] helmetRecipe = null;
 
 	// Changing the name can have unintended consequences
 	public static final String chestplateName = "demoChestplate";
+	// Max stack size in inventory
 	public static final int chestplateMaxStackSize = 1;
 	public static final Enchantment[] chestplateEnchantments = { Enchantment.thorns };
 	public static final int[] chestplateEnchantmentLevels = { 3 };
 	public static final PotionEffect[] chestplateEffects = { new PotionEffect(Potion.regeneration.id, 200, 0) };
+	// Don't change this. Recipes are defined below
 	public static Object[] chestplateRecipe = null;
 
 	// Changing the name can have unintended consequences
 	public static final String leggingsName = "demoLeggings";
+	// Max stack size in inventory
 	public static final int leggingsMaxStackSize = 1;
 	public static final Enchantment[] leggingsEnchantments = { Enchantment.thorns };
 	public static final int[] leggingsEnchantmentLevels = { 3 };
 	public static final PotionEffect[] leggingsEffects = { new PotionEffect(Potion.moveSpeed.id, 1200, 0) };
+	// Don't change this. Recipes are defined below
 	public static Object[] leggingsRecipe = null;
 
 	// Changing the name can have unintended consequences
 	public static final String bootsName = "demoBoots";
+	// Max stack size in inventory
 	public static final int bootsMaxStackSize = 1;
 	public static final Enchantment[] bootsEnchantments = { Enchantment.thorns };
 	public static final int[] bootsEnchantmentLevels = { 3 };
 	public static final PotionEffect[] bootsEffects = { new PotionEffect(Potion.jump.id, 600, 0) };
+	// Don't change this. Recipes are defined below
 	public static Object[] bootsRecipe = null;
 
 	// Changing the name can have unintended consequences
 	public static final String foodName = "demoFood";
+	// Max stack size in inventory
 	public static final int foodMaxStackSize = 64;
 	public static final int foodHealAmount = 10;
 	public static final float foodSaturationModifier = 2F;
@@ -330,6 +382,7 @@ public class Config {
 	public static final float entityTameableAIBegDistance = 8.0F;
 	public static final float entityTameableAIWatchClosestDistance = 8.0F;
 
+	// All the recipes are defined here
 	public static void initRecipes() {
 
 		swordRecipe = new Object[] { //

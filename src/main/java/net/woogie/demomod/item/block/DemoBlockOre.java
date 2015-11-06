@@ -23,6 +23,9 @@ public class DemoBlockOre extends Block {
 		this.setResistance(Config.blockResistance);
 		this.setUnlocalizedName(Config.MODID + ":" + Config.blockOreName);
 		this.setCreativeTab(CreativeTabs.tabBlock);
+		if (Config.blockLightLevel != 0.0F) {
+			this.setLightLevel(Config.blockLightLevel);
+		}
 	}
 
 	@Override

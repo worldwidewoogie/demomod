@@ -14,5 +14,8 @@ public class DemoBlock extends Block {
 		this.setResistance(Config.blockResistance);
 		this.setUnlocalizedName(Config.MODID + ":" + Config.blockName);
 		this.setCreativeTab(CreativeTabs.tabBlock);
+		if (Config.blockLightLevel != 0.0F) {
+			this.setLightLevel(Config.blockLightLevel);
+		}
 	}
 }
