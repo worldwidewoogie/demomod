@@ -12,9 +12,19 @@ The mod currently includes the following:
 * A custom hostile mob entity
 * A custom tameable mob entity
 
-The following are planned and/or being worked on:
+Preliminary instructions for getting the development environment set up are here:
 
-* A build script to produce a working mod jar file
+https://github.com/worldwidewoogie/demomod/blob/master/INSTALL.txt
+
+Once you have a working mod, you can build it with the following command on OSX/Linux:
+
+./gradlew build
+
+or Windows:
+
+gradlew build
+
+(Note that I have not yet tested the mod on a server.  I'm not aware of any reason it would not work, but I just have not gotten around to testing it yet.)
 
 All the attributes of the mod can be changed by editing the following:
 
