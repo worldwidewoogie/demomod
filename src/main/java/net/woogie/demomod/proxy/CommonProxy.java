@@ -5,6 +5,7 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
@@ -244,10 +245,11 @@ public class CommonProxy implements IProxy {
 
 		// EntityRegistry.addSpawn(EntityToSpawn.class, weightedProb, min, max,
 		// typeOfCreature, BiomeGenBase... biomes)
-		// EntityRegistry.addSpawn(DemoEntityMob.class, 5, 1, 2,
-		// Config.entityMobType, DemoMod.demoBiome);
-		// EntityRegistry.addSpawn(DemoEntityTameable.class, 5, 1, 2,
-		// Config.entityTameableType, DemoMod.demoBiome);
+		EntityRegistry.addSpawn(DemoEntityHostile.class, Config.entityHostileSpawnChance, Config.entityHostileSpawnMin,
+				Config.entityHostileSpawnMax, Config.entityHostileType, DemoMod.demoBiome);
+		EntityRegistry.addSpawn(DemoEntityTameable.class, Config.entityTameableSpawnChance,
+				Config.entityTameableSpawnMin, Config.entityTameableSpawnMax, Config.entityTameableType,
+				DemoMod.demoBiome);
 
 		RenderingRegistry.registerEntityRenderingHandler(DemoEntityHostile.class, new DemoRenderHostile(
 				Minecraft.getMinecraft().getRenderManager(), new DemoModelHostile(), Config.entityHostileShadowSize));

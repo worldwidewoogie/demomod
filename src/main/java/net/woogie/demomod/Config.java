@@ -175,6 +175,8 @@ public class Config {
 	public static final String swordName = "demoSword";
 	// Max stack size in inventory
 	public static final int swordMaxStackSize = 1;
+	// If this is true, the sword will summon lightning when it hits an entity
+	// or player
 	public static final boolean swordSummonsLightning = true;
 	public static final PotionEffect[] swordEffects = { //
 			new PotionEffect(Potion.blindness.id, 1200, 1), //
@@ -304,7 +306,7 @@ public class Config {
 	public static int biomeId = defaultBiomeId;
 	public static final String biomeName = "Demo Biome";
 	public static final Block biomeTopBlock = Blocks.grass;
-	public static final int biomeWeight = 100;
+	public static final int biomeWeight = 500;
 	public static final BiomeType biomeType = BiomeType.COOL;
 	public static final int biomeWorldGenerationWeight = 0;
 
@@ -327,12 +329,14 @@ public class Config {
 	public static final float biomeMaxHeight = 0.2F;
 	public static final float biomeTemperature = 1.5F;
 	public static final float biomeRainfall = 0.2F;
+	
+	
 	public static final List<SpawnListEntry> biomeSpawnList = new ArrayList<SpawnListEntry>() {
 		{
 			// new SpawnListEntry(EntityToSpawn.class, spawnRate, spawnMin,
 			// spawnMax);
-			new SpawnListEntry(DemoEntityHostile.class, 25, 4, 8);
-			new SpawnListEntry(DemoEntityTameable.class, 25, 4, 8);
+			new SpawnListEntry(DemoEntityHostile.class, 50, 4, 8);
+			new SpawnListEntry(DemoEntityTameable.class, 100, 4, 8);
 		}
 	};
 
@@ -359,6 +363,9 @@ public class Config {
 	public static final float entityHostileAIWatchClosestDistance = 8.0F;
 	public static final int entityHostileBaseDrops = 3;
 	public static final int entityHostileDropBonus = 2;
+	public static final int entityHostileSpawnChance = 50;
+	public static final int entityHostileSpawnMin = 4;
+	public static final int entityHostileSpawnMax = 8;
 
 	// Changing the name can have unintended consequences
 	public static final String entityTameableName = "demoTameable";
@@ -381,6 +388,9 @@ public class Config {
 	public static final double entityTameableAIWanderSpeed = 1.0D;
 	public static final float entityTameableAIBegDistance = 8.0F;
 	public static final float entityTameableAIWatchClosestDistance = 8.0F;
+	public static final int entityTameableSpawnChance = 100;
+	public static final int entityTameableSpawnMin = 4;
+	public static final int entityTameableSpawnMax = 8;
 
 	// All the recipes are defined here
 	public static void initRecipes() {

@@ -33,11 +33,6 @@ public class DemoBiome extends BiomeGenBase {
 		this.theBiomeDecorator.bigMushroomsPerChunk = Config.biomeBigMushroomsPerChunk;
 		this.theBiomeDecorator.generateLakes = true;
 
-		this.spawnableCreatureList.clear();
-		for (SpawnListEntry spawnListEntry : Config.biomeSpawnList) {
-			this.spawnableCreatureList.add(spawnListEntry);
-		}
-
 		this.setHeight(new Height(Config.biomeMinHeight, Config.biomeMaxHeight));
 		this.setTemperatureRainfall(Config.biomeTemperature, Config.biomeRainfall);
 	}
