@@ -5,12 +5,10 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -22,9 +20,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
 import net.woogie.demomod.biome.DemoBiome;
-import net.woogie.demomod.entity.mob.DemoEntityMob;
-import net.woogie.demomod.entity.mob.DemoModelMob;
-import net.woogie.demomod.entity.mob.DemoRenderMob;
+import net.woogie.demomod.entity.hostile.DemoEntityHostile;
+import net.woogie.demomod.entity.hostile.DemoModelHostile;
+import net.woogie.demomod.entity.hostile.DemoRenderHostile;
+import net.woogie.demomod.entity.tameable.DemoEntityTameable;
+import net.woogie.demomod.entity.tameable.DemoModelTameable;
+import net.woogie.demomod.entity.tameable.DemoRenderTameable;
 import net.woogie.demomod.item.DemoArmor;
 import net.woogie.demomod.item.DemoAxe;
 import net.woogie.demomod.item.DemoBow;
@@ -130,9 +131,13 @@ public class CommonProxy implements IProxy {
 		DemoMod.demoSeed = new DemoSeed();
 		GameRegistry.registerItem(DemoMod.demoSeed, Config.seedName);
 
-		DemoMod.demoMobMonsterPlacer = new DemoMonsterPlacer(Config.entityMobName, Config.entityMobSpawnColorBase,
-				Config.entityMobSpawnColorSpots);
-		GameRegistry.registerItem(DemoMod.demoMobMonsterPlacer, "spawn_" + Config.entityMobName);
+		DemoMod.demoHostileMonsterPlacer = new DemoMonsterPlacer(Config.entityHostileName,
+				Config.entityHostileSpawnColorBase, Config.entityHostileSpawnColorSpots);
+		GameRegistry.registerItem(DemoMod.demoHostileMonsterPlacer, "spawn_" + Config.entityHostileName);
+
+		DemoMod.demoTameableMonsterPlacer = new DemoMonsterPlacer(Config.entityTameableName,
+				Config.entityTameableSpawnColorBase, Config.entityTameableSpawnColorSpots);
+		GameRegistry.registerItem(DemoMod.demoTameableMonsterPlacer, "spawn_" + Config.entityTameableName);
 
 		DemoMod.demoBiome = new DemoBiome();
 		BiomeManager.addBiome(Config.biomeType, new BiomeEntry(DemoMod.demoBiome, Config.biomeWeight));
@@ -182,7 +187,7 @@ public class CommonProxy implements IProxy {
 		ModelBakery.addVariantName(DemoMod.demoBow, Config.MODID + ":" + Config.bowName,
 				Config.MODID + ":" + Config.bowName + "_0", Config.MODID + ":" + Config.bowName + "_1",
 				Config.MODID + ":" + Config.bowName + "_2");
-		
+
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoHelmet, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.helmetName, "inventory"));
 
@@ -201,8 +206,11 @@ public class CommonProxy implements IProxy {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoSeed, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.seedName, "inventory"));
 
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoMobMonsterPlacer, 0,
-				new ModelResourceLocation(Config.MODID + ":spawn_" + Config.entityMobName, "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoHostileMonsterPlacer, 0,
+				new ModelResourceLocation(Config.MODID + ":spawn_" + Config.entityHostileName, "inventory"));
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoTameableMonsterPlacer, 0,
+				new ModelResourceLocation(Config.MODID + ":spawn_" + Config.entityTameableName, "inventory"));
 
 		GameRegistry.addRecipe(new ItemStack(DemoMod.demoSword, 1), Config.swordRecipe);
 
@@ -228,16 +236,24 @@ public class CommonProxy implements IProxy {
 
 		GameRegistry.registerWorldGenerator(new DemoWorldGenerator(), Config.biomeWorldGenerationWeight);
 
-		EntityRegistry.registerModEntity(DemoEntityMob.class, Config.entityMobName, Config.entityMobId,
+		EntityRegistry.registerModEntity(DemoEntityHostile.class, Config.entityHostileName, Config.entityHostileId,
+				DemoMod.instance, 64, 1, true);
+
+		EntityRegistry.registerModEntity(DemoEntityTameable.class, Config.entityTameableName, Config.entityTameableId,
 				DemoMod.instance, 64, 1, true);
 
 		// EntityRegistry.addSpawn(EntityToSpawn.class, weightedProb, min, max,
 		// typeOfCreature, BiomeGenBase... biomes)
-		EntityRegistry.addSpawn(DemoEntityMob.class, 5, 1, 2, Config.entityMobType, BiomeGenBase.desert,
-				DemoMod.demoBiome);
+		// EntityRegistry.addSpawn(DemoEntityMob.class, 5, 1, 2,
+		// Config.entityMobType, DemoMod.demoBiome);
+		// EntityRegistry.addSpawn(DemoEntityTameable.class, 5, 1, 2,
+		// Config.entityTameableType, DemoMod.demoBiome);
 
-		RenderingRegistry.registerEntityRenderingHandler(DemoEntityMob.class, new DemoRenderMob(
-				Minecraft.getMinecraft().getRenderManager(), new DemoModelMob(), Config.entityMobShadowSize));
+		RenderingRegistry.registerEntityRenderingHandler(DemoEntityHostile.class, new DemoRenderHostile(
+				Minecraft.getMinecraft().getRenderManager(), new DemoModelHostile(), Config.entityHostileShadowSize));
+
+		RenderingRegistry.registerEntityRenderingHandler(DemoEntityTameable.class, new DemoRenderTameable(
+				Minecraft.getMinecraft().getRenderManager(), new DemoModelTameable(), Config.entityTameableShadowSize));
 
 	}
 

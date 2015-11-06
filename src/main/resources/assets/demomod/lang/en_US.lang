@@ -1,5 +1,7 @@
-entity.demoMob.name=Demo Mob
-item.demomod:spawn_demoMob.name=Spawn Demo Mob
+entity.demoHostile.name=Demo Hostile Mob
+item.demomod:spawn_demoHostile.name=Spawn Demo Hostile Mob
+entity.demoTameable.name=Demo Tameable Mob
+item.demomod:spawn_demoTameable.name=Spawn Demo Tameable Mob
 item.demomod:demoHelmet.name=Demo Helmet
 item.demomod:demoChestplate.name=Demo Chestplate
 item.demomod:demoLeggings.name=Demo Leggings

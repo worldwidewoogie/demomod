@@ -10,10 +10,10 @@ The mod currently includes the following:
 * A custom sword, bow, pickaxe, axe, hoe, and shovel
 * A custom set of armor
 * A custom hostile mob entity
+* A custom tamable mob entity
 
 The following are planned and/or being worked on:
 
-* A tamable mob entity
 * A build script to produce a working mod jar file
 
 All the attributes of the mod can be changed by editing the following:

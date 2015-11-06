@@ -1,4 +1,4 @@
-package net.woogie.demomod.entity.mob;
+package net.woogie.demomod.entity.hostile;
 
 import com.google.common.base.Predicate;
 
@@ -19,18 +19,18 @@ import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
 import net.woogie.demomod.entity.tameable.DemoEntityTameable;
 
-public class DemoEntityMob extends EntityMob {
-	public DemoEntityMob(World worldIn) {
+public class DemoEntityHostile extends EntityMob {
+	public DemoEntityHostile(World worldIn) {
 		super(worldIn);
 
-		this.experienceValue = Config.entityMobExperience;
+		this.experienceValue = Config.entityHostileExperience;
 
-		if (Config.entityMobCanSwim) {
+		if (Config.entityHostileCanSwim) {
 			this.tasks.addTask(0, new EntityAISwimming(this));
 		}
 
 		// avoid DemoEntityTameable
-		if (Config.entityMobAvoidDemoEntityTameable) {
+		if (Config.entityHostileAvoidDemoEntityTameable) {
 			this.tasks.addTask(1, new EntityAIAvoidEntity(this, new Predicate() {
 				public boolean func_179958_a(Entity p_179958_1_) {
 					return p_179958_1_ instanceof DemoEntityTameable;
@@ -40,14 +40,14 @@ public class DemoEntityMob extends EntityMob {
 				public boolean apply(Object p_apply_1_) {
 					return this.func_179958_a((Entity) p_apply_1_);
 				}
-			}, Config.entityMobAvoidDemoEntityTameableRange, Config.entityMobAvoidDemoEntityTameableFarSpeed,
-					Config.entityMobAvoidDemoEntityTameableNearSpeed));
+			}, Config.entityHostileAvoidDemoEntityTameableRange, Config.entityHostileAvoidDemoEntityTameableFarSpeed,
+					Config.entityHostileAvoidDemoEntityTameableNearSpeed));
 		}
 
-		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, Config.entityMobAIAttackOnCollideSpeed, false));
-		this.tasks.addTask(1, new EntityAIWander(this, Config.entityMobAIWanderSpeed));
+		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, Config.entityHostileAIAttackOnCollideSpeed, false));
+		this.tasks.addTask(1, new EntityAIWander(this, Config.entityHostileAIWanderSpeed));
 		this.tasks.addTask(1,
-				new EntityAIWatchClosest(this, EntityPlayer.class, Config.entityMobAIWatchClosestDistance));
+				new EntityAIWatchClosest(this, EntityPlayer.class, Config.entityHostileAIWatchClosestDistance));
 		this.tasks.addTask(1, new EntityAILookIdle(this));
 		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false, new Class[0]));
@@ -60,20 +60,20 @@ public class DemoEntityMob extends EntityMob {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(Config.entityMobMaxHealth);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(Config.entityMobFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(Config.entityHostileMaxHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(Config.entityHostileFollowRange);
 		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance)
-				.setBaseValue(Config.entityMobKnockbackResistance);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(Config.entityMobMovementSpeed);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(Config.entityMobAttackDamage);
+				.setBaseValue(Config.entityHostileKnockbackResistance);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(Config.entityHostileMovementSpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(Config.entityHostileAttackDamage);
 	}
 
 	@Override
 	protected void dropFewItems(boolean recentlyHitByPlayer, int lootingLevel) {
 		if (recentlyHitByPlayer) {
 
-			int j = this.rand.nextInt(Config.entityMobDropBonus + lootingLevel) + Config.entityMobBaseDrops;
-			
+			int j = this.rand.nextInt(Config.entityHostileDropBonus + lootingLevel) + Config.entityHostileBaseDrops;
+
 			for (int k = 0; k < j; ++k) {
 				this.dropItem(DemoMod.demoItem, 1);
 			}

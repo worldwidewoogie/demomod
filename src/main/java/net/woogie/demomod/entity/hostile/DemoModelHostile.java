@@ -1,11 +1,11 @@
-package net.woogie.demomod.entity.mob;
+package net.woogie.demomod.entity.hostile;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-public class DemoModelMob extends ModelBase {
+public class DemoModelHostile extends ModelBase {
 	// fields
 	ModelRenderer head;
 	ModelRenderer body;
@@ -16,7 +16,7 @@ public class DemoModelMob extends ModelBase {
 	ModelRenderer leftarm2;
 	ModelRenderer rightarm2;
 
-	public DemoModelMob() {
+	public DemoModelHostile() {
 		textureWidth = 68;
 		textureHeight = 74;
 

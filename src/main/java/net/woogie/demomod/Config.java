@@ -8,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -16,7 +15,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
-import net.woogie.demomod.entity.mob.DemoEntityMob;
+import net.woogie.demomod.entity.hostile.DemoEntityHostile;
+import net.woogie.demomod.entity.tameable.DemoEntityTameable;
 
 public class Config {
 
@@ -204,34 +204,55 @@ public class Config {
 		{
 			// new SpawnListEntry(EntityToSpawn.class, spawnRate, spawnMin,
 			// spawnMax);
-			new SpawnListEntry(DemoEntityMob.class, 25, 4, 8);
+			new SpawnListEntry(DemoEntityHostile.class, 25, 4, 8);
+			new SpawnListEntry(DemoEntityTameable.class, 25, 4, 8);
 		}
 	};
 
-	public static final String entityMobName = "demoMob";
-	public static final int entityMobId = 1;
-	public static final EnumCreatureType entityMobType = EnumCreatureType.CREATURE;
-	public static final float entityMobShadowSize = 0.3F;
-	public static final int entityMobSpawnColorBase = (new Color(0, 0, 0)).getRGB();
-	public static final int entityMobSpawnColorSpots = (new Color(8, 178, 60)).getRGB();
-	public static final int entityMobExperience = 5;
-	public static final double entityMobMaxHealth = 35.0D;
-	public static final double entityMobFollowRange = 32.0D;
-	public static final double entityMobKnockbackResistance = 0.0D;
-	public static final double entityMobMovementSpeed = 0.5D;
-	public static final double entityMobAttackDamage = 7.0D;
-	public static final boolean entityMobCanSwim = true;
-	public static final boolean entityMobAvoidDemoEntityTameable = true;
-	public static final float entityMobAvoidDemoEntityTameableRange = 6.0F;
-	public static final double entityMobAvoidDemoEntityTameableFarSpeed = 1.0D;
-	public static final double entityMobAvoidDemoEntityTameableNearSpeed = 1.2D;
-	public static final double entityMobAIAttackOnCollideSpeed = 1.0D;
-	public static final double entityMobAIWanderSpeed = 0.8D;
-	public static final float entityMobAIWatchClosestDistance = 8.0F;
-	public static final int entityMobBaseDrops = 3;
-	public static final int entityMobDropBonus = 2;
-	
-	
+	public static final String entityHostileName = "demoHostile";
+	public static final int entityHostileId = 1;
+	public static final EnumCreatureType entityHostileType = EnumCreatureType.MONSTER;
+	public static final float entityHostileShadowSize = 0.6F;
+	public static final int entityHostileSpawnColorBase = (new Color(0, 0, 0)).getRGB();
+	public static final int entityHostileSpawnColorSpots = (new Color(255, 255, 255)).getRGB();
+	public static final int entityHostileExperience = 5;
+	public static final double entityHostileMaxHealth = 35.0D;
+	public static final double entityHostileFollowRange = 32.0D;
+	public static final double entityHostileKnockbackResistance = 0.0D;
+	public static final double entityHostileMovementSpeed = 0.5D;
+	public static final double entityHostileAttackDamage = 7.0D;
+	public static final boolean entityHostileCanSwim = true;
+	public static final boolean entityHostileAvoidDemoEntityTameable = true;
+	public static final float entityHostileAvoidDemoEntityTameableRange = 6.0F;
+	public static final double entityHostileAvoidDemoEntityTameableFarSpeed = 1.0D;
+	public static final double entityHostileAvoidDemoEntityTameableNearSpeed = 1.2D;
+	public static final double entityHostileAIAttackOnCollideSpeed = 1.0D;
+	public static final double entityHostileAIWanderSpeed = 0.8D;
+	public static final float entityHostileAIWatchClosestDistance = 8.0F;
+	public static final int entityHostileBaseDrops = 3;
+	public static final int entityHostileDropBonus = 2;
+
+	public static final String entityTameableName = "demoTameable";
+	public static final int entityTameableId = 2;
+	public static final EnumCreatureType entityTameableType = EnumCreatureType.CREATURE;
+	public static final float entityTameableShadowSize = 0.3F;
+	public static final int entityTameableSpawnColorBase = (new Color(255, 255, 255)).getRGB();
+	public static final int entityTameableSpawnColorSpots = (new Color(0, 0, 0)).getRGB();
+	public static final double entityTameableMovementSpeed = 0.5D;
+	public static final double entityTameableAttackDamage = 7.0D;
+	public static final int entityTameableExperience = 5;
+	public static final double entityTameableMaxWildHealth = 9.0D;
+	public static final double entityTameableMaxTamedHealth = 35.0D;
+	public static final double entityTameableAIAttackOnCollideSpeed = 1.0D;
+	public static final float entityTameableAILeapAtTargetHeight = 0.4F;
+	public static final double entityTameableAIFollowOwnerSpeed = 1.0D;
+	public static final float entityTameableAIFollowOwnerMaxDistance = 10.0F;
+	public static final float entityTameableAIFollowOwnerMinDistance = 2.0F;
+	public static final double entityTameableAIMateMoveSpeed = 1.0D;
+	public static final double entityTameableAIWanderSpeed = 1.0D;
+	public static final float entityTameableAIBegDistance = 8.0F;
+	public static final float entityTameableAIWatchClosestDistance = 8.0F;
+
 	public static void initRecipes() {
 
 		swordRecipe = new Object[] { //
