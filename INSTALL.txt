@@ -1,24 +1,96 @@
-The following setup instructions are for Linux, and assume you are installing
-into the directory /home/user/src/minecraft.  Similar instructions should work
-for OSX.  I don't use Windows, so I don't have good instructions for that.
+While DemoMod tries to make building your mod as easy as possible, getting
+everything set up is still somewhat daunting.  This guide tries to explain
+the process as simply as possible.
 
-These instructions also assume you already have a working eclipse installation,
-and that you have downloaded the latest forge source from:
+First off, Minecraft is written in Java, and in order write Java programs,
+you will need to download the Java Development Kit from here:
+
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+You should download and install the JDK before going further in this
+document. 
+
+Secondly, Minecraft mods are generally built on top of a mod framework that
+is maintained separately from Minecraft itself.  The framework that DemoMod
+uses is called Forge, and writing Forge mods requires that you get the 
+latest Forge Recommended source from here:
 
 http://files.minecraftforge.net/minecraftforge/1.8
 
+Download the Recommended Src, and save it until the instructions below
+tell you what to do with it.
 
-First setup the directory and clone the repository:
+Next, you have a few options on how you will proceed.  The quickest way to
+get started is to grab a ZIP file of the current DemoMod source from here:
 
-mkdir -p ~/src/minecraft
-cd ~/src/minecraft
+https://github.com/worldwidewoogie/demomod/archive/master.zip
+
+With the Forge source, the DemoMod source, a simple text editor, and an image
+editor capable of editing PNG files, you can make all the changes you will
+need to produce your own mod.  However, there are several optional pieces of 
+software that can make your life easier while editing the source:
+
+The DemoMod source is housed in a git repository.  This means that if any 
+changes are made to the DemoMod source, you can easily import those changes
+into your mod by using git commands.  If you are happy just to have the
+current version of DemoMod, then you can skip downloading git.  You can
+download git for your OS here:
+
+https://git-scm.com/download/
+
+If you choose to use git, please download it and install it before going
+further in this document.
+
+While it is possible to edit Java files with a simple text editor, most
+developers prefer to use a development environment that is designed to
+understand the code and make it easier to write and test your changes.
+Fortunately, Forge has very good integration with Eclipse which makes it
+an ideal tool for working on your mod.  I strongly recommend installing
+Eclipse.  You can download it here:
+
+https://www.eclipse.org/downloads/
+
+If you choose to use Eclipse, please download it and install it before going
+further in this document.
+
+You will also want an image editor that will let you edit the PNG files that
+Minecraft uses as textured for everything you will create.  If you don't 
+already have a favorite, you can download and install the GNU Image Manipulation
+Program (it is somewhat complex, so I will try to document some simple steps to
+get you started):
+
+http://www.gimp.org/downloads/
+
+If you choose to use the GNU Image Manipulation Program, please download it and 
+install it before going further in this document.
+
+Now that we've discussed all the options, let's get started on the setup...
+
+(First off, apologies if any of the installation instructions are unclear.  I do
+all my development work on Linux, so I'm not always 100% sure how things will
+work on other platforms.  Please let me know if I can clarify anything.)
+
+First, choose a directory where you would like to setup the DemoMod development
+environment.  Open a command prompt, and change to that directory.  If you have 
+downloaded the demomod source, do the following:
+
+unzip master.zip
+cd demomod-master
+
+(You will need to replace "master.zip" to the full path where you downloaded
+master.zip.
+
+If you have chosen to use git, do the following:
+
 git clone git@github.com:worldwidewoogie/demomod.git
-
+cd demomod
 
 Next, install the forge source:
 
-cd demomod
-unzip ~/Downloads/forge-1.8-11.14.3.1502-src.zip
+unzip forge-1.8-11.14.3.XXXX-src.zip
+
+(You will need to replace "forge-1.8-11.14.3.XXXX-src.zip" to the full path where 
+you downloaded the forge source.)
 
 When prompted to replace any file, hit 'N'
 
@@ -27,11 +99,41 @@ replace src/main/resources/mcmod.info? [y]es, [n]o, [A]ll, [N]one, [r]ename: N
 
 Complete the forge setup process:
 
-./gradlew setupDecompWorkspace
+Windows:
+
+gradlew setupDecompWorkspace --refresh-dependencies
+
+OR
+
+Linux/Mac OSX:
+
+./gradlew setupDecompWorkspace --refresh-dependencies
+
+
+If you have chosen to use Eclipse, 
+
+Windows:
+
+gradlew eclipse
+
+OR
+
+Linux/Mac OSX:
+
 ./gradlew eclipse
 
 
+Forge includes some sample code that you will want to remove.
+
 Remove example mod:
+
+Windows:
+
+rmdir src\main\java\com /S /Q
+
+OR
+
+Linux/Mac OSX:
 
 rm -rf src/main/java/com
 
@@ -39,38 +141,69 @@ rm -rf src/main/java/com
 Test it out:
 
 start eclipse
+
+If you have chosen to download the demomod ZIP file:
+
+open workspace /home/user/src/minecraft/demomod-master/eclipse
+
+If you have chosen to use git:
+
 open workspace /home/user/src/minecraft/demomod/eclipse
 
+You should see a Minecraft project.  If you expand the project, the first
+two entries you see should be the following:
 
-You should be able to edit the Java project.
+src/main/java
+src/main/resources
 
+Expand src/main/java, and then net.woogie.demomod.  You should see a file
+called Config.java.  This is the only Java file you will need to edit in
+order to create your mod.  The file contains comments describing what the
+values mean, but it is still a work in progress.
 
-If you want to edit any of the JSON files, you might want to install
-json tools:
+Expand src/main/resources.  The 2 areas you will need to know about are:
 
+assets.demomod.lang
+assets.demomod.textures.*
 
-Install Marketplace Client
+There is a file called en_US.lang in assets.demomod.lang that contains all
+the display names for the blocks, items, and entities the mod creates.
 
-Help/Install New Software
+The texture PNG files are all under assets.demomod.textures.*, in various
+subdirectories.  Most things have 1 PNG file, and it is pretty obvious how
+they apply to the object.  Some have multiple PNG files, or have a single
+PNG file that will be confusing when you try to edit it.  I'll try to cover
+that in a separate document.
 
-Work with:  --All Available Sites--
+To run your mod to test the changes you have made, open Config.java, and look 
+for the green cirle with a white arrow in it on the tool bar at the top.  If
+you hover over it, it should say "Run Client".  Click on it.  I should start
+Minecraft with your mod.
 
-Expand "General Purpose Tools"
-Select "Marketplace Client"
-Select "Next >"
-Select "Next >"
-Select "I accept the terms of the license agreement"
-Select "Finish"
-When prompted, restart eclipse
+Once you are happy with your mod, you can build a JAR file that you can run
+with Minecraft stand-alone, or on a Minecraft server.  In either case, you will
+need to have Forge installed, which we won't cover here.  To build the JAR file,
+go to the demomod (or demomod-master) directory and run the following:
 
-Install json tools:
+Windows:
 
-Help/Eclipse Marketplace...
-Search for "json tools"
-Select "Install"
-Select "Confirm"
-Select "I accept the terms of the licence agreement"
-Select "Finish"
-If you get a security warning about unsigned contect, select "OK"
-When prompted, restart eclipse
+gradlew build
+
+OR
+
+Linux/Mac OSX:
+
+./gradlew build
+
+You will find the JAR file in the following:
+
+Windows:
+
+build\libs\demomod-0.1.jar 
+
+OR
+
+Linux/Mac OSX:
+
+build/libs/demomod-0.1.jar 
 
