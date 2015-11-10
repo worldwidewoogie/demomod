@@ -50,6 +50,7 @@ public class DemoMod {
 	public static DemoBlockBush demoBlockBush;
 	public static Item demoItem;
 	public static ItemSword demoSword;
+	public static ItemSword demoGiantSword;
 	public static ItemPickaxe demoPickaxe;
 	public static ItemHoe demoHoe;
 	public static ItemSpade demoShovel;
@@ -66,6 +67,7 @@ public class DemoMod {
 
 	public static DemoMonsterPlacer demoHostileMonsterPlacer;
 	public static DemoMonsterPlacer demoTameableMonsterPlacer;
+	public static DemoMonsterPlacer demoBossMonsterPlacer;
 
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {

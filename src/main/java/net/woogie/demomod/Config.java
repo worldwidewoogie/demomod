@@ -188,6 +188,20 @@ public class Config {
 	public static Object[] swordRecipe = null;
 
 	// Changing the name can have unintended consequences
+	public static final String giantSwordName = "demoGiantSword";
+	// Max stack size in inventory
+	public static final int giantSwordMaxStackSize = 1;
+	// If this is true, the sword will summon lightning when it hits an entity
+	// or player
+	public static final boolean giantSwordSummonsLightning = true;
+	public static final PotionEffect[] giantSwordEffects = { //
+			new PotionEffect(Potion.blindness.id, 1200, 1), //
+			new PotionEffect(Potion.poison.jump.id, 600, 0), //
+			new PotionEffect(Potion.weakness.id, 200, 1) };
+	public static final Enchantment[] giantSwordEnchantments = { Enchantment.sharpness, Enchantment.fireAspect };
+	public static final int[] giantSwordEnchantmentLevels = { 3, 3 };
+
+	// Changing the name can have unintended consequences
 	public static final String pickaxeName = "demoPickaxe";
 	// Max stack size in inventory
 	public static final int pickaxeMaxStackSize = 1;
@@ -329,8 +343,7 @@ public class Config {
 	public static final float biomeMaxHeight = 0.2F;
 	public static final float biomeTemperature = 1.5F;
 	public static final float biomeRainfall = 0.2F;
-	
-	
+
 	public static final List<SpawnListEntry> biomeSpawnList = new ArrayList<SpawnListEntry>() {
 		{
 			// new SpawnListEntry(EntityToSpawn.class, spawnRate, spawnMin,
@@ -346,7 +359,7 @@ public class Config {
 	public static final EnumCreatureType entityHostileType = EnumCreatureType.MONSTER;
 	public static final float entityHostileShadowSize = 0.6F;
 	public static final int entityHostileSpawnColorBase = (new Color(0, 0, 0)).getRGB();
-	public static final int entityHostileSpawnColorSpots = (new Color(255, 255, 255)).getRGB();
+	public static final int entityHostileSpawnColorSpots = (new Color(255, 0, 0)).getRGB();
 	public static final int entityHostileExperience = 5;
 	public static final double entityHostileMaxHealth = 35.0D;
 	public static final double entityHostileFollowRange = 32.0D;
@@ -391,6 +404,31 @@ public class Config {
 	public static final int entityTameableSpawnChance = 100;
 	public static final int entityTameableSpawnMin = 4;
 	public static final int entityTameableSpawnMax = 8;
+
+	// Changing the name can have unintended consequences
+	public static final String entityBossName = "demoBoss";
+	public static final int entityBossId = 3;
+	public static final EnumCreatureType entityBossType = EnumCreatureType.MONSTER;
+	public static final float entityBossShadowSize = 0.6F;
+	public static final int entityBossSpawnColorBase = (new Color(255, 0, 0)).getRGB();
+	public static final int entityBossSpawnColorSpots = (new Color(0, 0, 0)).getRGB();
+	public static final int entityBossExperience = 5;
+	public static final double entityBossMaxHealth = 350.0D;
+	public static final double entityBossFollowRange = 32.0D;
+	public static final double entityBossKnockbackResistance = 1.0D;
+	public static final double entityBossMovementSpeed = 0.5D;
+	public static final double entityBossAttackDamage = 40.0D;
+	public static final boolean entityBossCanSwim = true;
+	public static final boolean entityBossAvoidDemoEntityTameable = true;
+	public static final float entityBossAvoidDemoEntityTameableRange = 6.0F;
+	public static final double entityBossAvoidDemoEntityTameableFarSpeed = 1.0D;
+	public static final double entityBossAvoidDemoEntityTameableNearSpeed = 1.2D;
+	public static final double entityBossAIAttackOnCollideSpeed = 1.0D;
+	public static final double entityBossAIWanderSpeed = 0.8D;
+	public static final float entityBossAIWatchClosestDistance = 8.0F;
+	public static final int entityBossSpawnChance = 20;
+	public static final int entityBossSpawnMin = 1;
+	public static final int entityBossSpawnMax = 1;
 
 	// All the recipes are defined here
 	public static void initRecipes() {

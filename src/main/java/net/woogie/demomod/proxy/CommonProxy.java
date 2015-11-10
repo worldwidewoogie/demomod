@@ -1,11 +1,6 @@
 package net.woogie.demomod.proxy;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
@@ -20,12 +15,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
 import net.woogie.demomod.biome.DemoBiome;
+import net.woogie.demomod.entity.boss.DemoEntityBoss;
 import net.woogie.demomod.entity.hostile.DemoEntityHostile;
 import net.woogie.demomod.entity.tameable.DemoEntityTameable;
 import net.woogie.demomod.item.DemoArmor;
 import net.woogie.demomod.item.DemoAxe;
 import net.woogie.demomod.item.DemoBow;
 import net.woogie.demomod.item.DemoFood;
+import net.woogie.demomod.item.DemoGiantSword;
 import net.woogie.demomod.item.DemoHoe;
 import net.woogie.demomod.item.DemoItem;
 import net.woogie.demomod.item.DemoMonsterPlacer;
@@ -94,6 +91,9 @@ public class CommonProxy implements IProxy {
 		DemoMod.demoSword = new DemoSword();
 		GameRegistry.registerItem(DemoMod.demoSword, Config.swordName);
 
+		DemoMod.demoGiantSword = new DemoGiantSword();
+		GameRegistry.registerItem(DemoMod.demoGiantSword, Config.giantSwordName);
+
 		DemoMod.demoPickaxe = new DemoPickaxe();
 		GameRegistry.registerItem(DemoMod.demoPickaxe, Config.pickaxeName);
 
@@ -135,6 +135,10 @@ public class CommonProxy implements IProxy {
 				Config.entityTameableSpawnColorBase, Config.entityTameableSpawnColorSpots);
 		GameRegistry.registerItem(DemoMod.demoTameableMonsterPlacer, "spawn_" + Config.entityTameableName);
 
+		DemoMod.demoBossMonsterPlacer = new DemoMonsterPlacer(Config.entityBossName,
+				Config.entityBossSpawnColorBase, Config.entityBossSpawnColorSpots);
+		GameRegistry.registerItem(DemoMod.demoBossMonsterPlacer, "spawn_" + Config.entityBossName);
+
 		DemoMod.demoBiome = new DemoBiome();
 		BiomeManager.addBiome(Config.biomeType, new BiomeEntry(DemoMod.demoBiome, Config.biomeWeight));
 
@@ -173,12 +177,18 @@ public class CommonProxy implements IProxy {
 		EntityRegistry.registerModEntity(DemoEntityTameable.class, Config.entityTameableName, Config.entityTameableId,
 				DemoMod.instance, 64, 1, true);
 
+		EntityRegistry.registerModEntity(DemoEntityBoss.class, Config.entityBossName, Config.entityBossId,
+				DemoMod.instance, 64, 1, true);
+
 		// EntityRegistry.addSpawn(EntityToSpawn.class, weightedProb, min, max,
 		// typeOfCreature, BiomeGenBase... biomes)
 		EntityRegistry.addSpawn(DemoEntityHostile.class, Config.entityHostileSpawnChance, Config.entityHostileSpawnMin,
 				Config.entityHostileSpawnMax, Config.entityHostileType, DemoMod.demoBiome);
 		EntityRegistry.addSpawn(DemoEntityTameable.class, Config.entityTameableSpawnChance,
 				Config.entityTameableSpawnMin, Config.entityTameableSpawnMax, Config.entityTameableType,
+				DemoMod.demoBiome);
+		EntityRegistry.addSpawn(DemoEntityBoss.class, Config.entityBossSpawnChance,
+				Config.entityBossSpawnMin, Config.entityBossSpawnMax, Config.entityBossType,
 				DemoMod.demoBiome);
 
 	}

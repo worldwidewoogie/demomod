@@ -12,6 +12,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
+import net.woogie.demomod.entity.boss.DemoEntityBoss;
+import net.woogie.demomod.entity.boss.DemoModelBoss;
+import net.woogie.demomod.entity.boss.DemoRenderBoss;
 import net.woogie.demomod.entity.hostile.DemoEntityHostile;
 import net.woogie.demomod.entity.hostile.DemoModelHostile;
 import net.woogie.demomod.entity.hostile.DemoRenderHostile;
@@ -50,6 +53,9 @@ public class ClientProxy extends CommonProxy {
 
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoSword, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.swordName, "inventory"));
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoGiantSword, 0,
+				new ModelResourceLocation(Config.MODID + ":" + Config.giantSwordName, "inventory"));
 
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoPickaxe, 0,
 				new ModelResourceLocation(Config.MODID + ":" + Config.pickaxeName, "inventory"));
@@ -94,11 +100,17 @@ public class ClientProxy extends CommonProxy {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoTameableMonsterPlacer, 0,
 				new ModelResourceLocation(Config.MODID + ":spawn_" + Config.entityTameableName, "inventory"));
 
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(DemoMod.demoBossMonsterPlacer, 0,
+				new ModelResourceLocation(Config.MODID + ":spawn_" + Config.entityBossName, "inventory"));
+
 		RenderingRegistry.registerEntityRenderingHandler(DemoEntityHostile.class, new DemoRenderHostile(
 				Minecraft.getMinecraft().getRenderManager(), new DemoModelHostile(), Config.entityHostileShadowSize));
 
 		RenderingRegistry.registerEntityRenderingHandler(DemoEntityTameable.class, new DemoRenderTameable(
 				Minecraft.getMinecraft().getRenderManager(), new DemoModelTameable(), Config.entityTameableShadowSize));
+
+		RenderingRegistry.registerEntityRenderingHandler(DemoEntityBoss.class, new DemoRenderBoss(
+				Minecraft.getMinecraft().getRenderManager(), new DemoModelBoss(), Config.entityBossShadowSize));
 
 	}
 
