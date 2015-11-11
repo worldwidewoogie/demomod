@@ -24,7 +24,7 @@ or Windows:
 
 gradlew build
 
-(Note that I have not yet tested the mod on a server.  I'm not aware of any reason it would not work, but I just have not gotten around to testing it yet.)
+demomod has been built and tested on both single player and multi player server.
 
 All the attributes of the mod can be changed by editing the following:
 
