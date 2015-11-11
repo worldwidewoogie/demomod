@@ -82,7 +82,7 @@ master.zip.
 
 If you have chosen to use git, do the following:
 
-git clone git@github.com:worldwidewoogie/demomod.git
+git clone https://github.com/worldwidewoogie/demomod.git
 cd demomod
 
 Next, install the forge source:
