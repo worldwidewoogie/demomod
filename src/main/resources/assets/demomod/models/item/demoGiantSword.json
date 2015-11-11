@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "demomod:items/demoSword"
+        "layer0": "demomod:items/demoGiantSword"
     },
     "display": {
         "thirdperson": {
