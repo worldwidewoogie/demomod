@@ -60,13 +60,6 @@ public class DemoBow extends ItemBow {
 
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityPlayer playerIn, int timeLeft) {
 
-		// TODO:  fix this a better way
-		// add the enchantments. I'm not sure why adding them in onCreated is
-		// not working for bows
-		for (int i = 0; i < Config.bowEnchantments.length; i++) {
-			stack.addEnchantment(Config.bowEnchantments[i], Config.bowEnchantmentLevels[i]);
-		}
-
 		int j = this.getMaxItemUseDuration(stack) - timeLeft;
 		net.minecraftforge.event.entity.player.ArrowLooseEvent event = new net.minecraftforge.event.entity.player.ArrowLooseEvent(
 				playerIn, stack, j);
