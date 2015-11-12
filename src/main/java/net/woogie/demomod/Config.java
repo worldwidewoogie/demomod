@@ -8,11 +8,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionAbsorption;
+import net.minecraft.potion.PotionAttackDamage;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionHealth;
+import net.minecraft.potion.PotionHealthBoost;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.woogie.demomod.entity.hostile.DemoEntityHostile;
@@ -178,11 +184,89 @@ public class Config {
 	// If this is true, the sword will summon lightning when it hits an entity
 	// or player
 	public static final boolean swordSummonsLightning = true;
+	// Add potion effects to the sword. When hit by the sword, the opponent will
+	// also have the potion applied. Add as many potions as you want, but they
+	// must be comma separated.
+	//
+	// PotionEffect(potionId, effectDuration, effectAmplifier)
+	//
+	// These are the valid potion IDs:
+	//
+	// Potion.moveSpeed.id
+	// Potion.moveSlowdown.id
+	// Potion.digSpeed.id
+	// Potion.digSlowdown.id
+	// Potion.damageBoost.id
+	// Potion.heal.id
+	// Potion.harm.id
+	// Potion.jump.id
+	// Potion.confusion.id
+	// Potion.regeneration.id
+	// Potion.resistance.id
+	// Potion.fireResistance.id
+	// Potion.waterBreathing.id
+	// Potion.invisibility.id
+	// Potion.blindness.id
+	// Potion.nightVision.id
+	// Potion.hunger.id
+	// Potion.weakness.id
+	// Potion.poison.id
+	// Potion.wither.id
+	// Potion.healthBoost.id
+	// Potion.absorption.id
+	// Potion.saturation.id
+	//
+	// Effect duration is the time, in seconds that the effect lasts
+	//
+	// Effect amplifier is the level of the effect
+	//
+	// More documentation about effect can be found here:
+	//
+	// http://minecraft.gamepedia.com/Effect
+	//
 	public static final PotionEffect[] swordEffects = { //
 			new PotionEffect(Potion.blindness.id, 1200, 1), //
 			new PotionEffect(Potion.poison.jump.id, 600, 0), //
 			new PotionEffect(Potion.weakness.id, 200, 1) };
+	//
+	// Add enchantments to the sword
+	//
+	// Enchantment.fireProtection
+	// Enchantment.featherFalling
+	// Enchantment.blastProtection
+	// Enchantment.projectileProtection
+	// Enchantment.respiration
+	// Enchantment.aquaAffinity
+	// Enchantment.thorns
+	// Enchantment.depthStrider
+	// Enchantment.sharpness
+	// Enchantment.smite
+	// Enchantment.baneOfArthropods
+	// Enchantment.knockback
+	// Enchantment.fireAspect
+	// Enchantment.looting
+	// Enchantment.efficiency
+	// Enchantment.silkTouch
+	// Enchantment.unbreaking
+	// Enchantment.fortune
+	// Enchantment.power
+	// Enchantment.punch
+	// Enchantment.flame
+	// Enchantment.infinity
+	// Enchantment.luckOfTheSea
+	// Enchantment.lure
+	//
+	// Note that not all enchantments are appropriate for all item types, so
+	// some might not have the desired effect.
+	//
+	// More documentation about enchantments can be found here:
+	//
+	// http://minecraft.gamepedia.com/Enchanting#Enchantments
+	//
 	public static final Enchantment[] swordEnchantments = { Enchantment.sharpness, Enchantment.fireAspect };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] swordEnchantmentLevels = { 3, 3 };
 	// Don't change this. Recipes are defined below
 	public static Object[] swordRecipe = null;
@@ -194,23 +278,35 @@ public class Config {
 	// If this is true, the sword will summon lightning when it hits an entity
 	// or player
 	public static final boolean giantSwordSummonsLightning = true;
+	// Add effects to your sword. See swordEffects above for options
 	public static final PotionEffect[] giantSwordEffects = { //
 			new PotionEffect(Potion.blindness.id, 1200, 1), //
 			new PotionEffect(Potion.poison.jump.id, 600, 0), //
 			new PotionEffect(Potion.weakness.id, 200, 1) };
+	// Add enchantments to your sword. See swordEnchantments above for options
 	public static final Enchantment[] giantSwordEnchantments = { Enchantment.sharpness, Enchantment.fireAspect };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] giantSwordEnchantmentLevels = { 3, 3 };
 
 	// Changing the name can have unintended consequences
 	public static final String pickaxeName = "demoPickaxe";
 	// Max stack size in inventory
 	public static final int pickaxeMaxStackSize = 1;
+	// If this is true, the pickaxe will summon lightning when it hits an entity
+	// or player
 	public static final boolean pickaxeSummonsLightning = true;
+	// Add effects to your pickaxe. See swordEffects above for options
 	public static final PotionEffect[] pickaxeEffects = { //
 			new PotionEffect(Potion.blindness.id, 1200, 1), //
 			new PotionEffect(Potion.poison.jump.id, 600, 0), //
 			new PotionEffect(Potion.weakness.id, 200, 1) };
+	// Add enchantments to your pickaxe. See swordEnchantments above for options
 	public static final Enchantment[] pickaxeEnchantments = { Enchantment.efficiency, Enchantment.fortune };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] pickaxeEnchantmentLevels = { 3, 3 };
 	// Don't change this. Recipes are defined below
 	public static Object[] pickaxeRecipe = null;
@@ -219,7 +315,11 @@ public class Config {
 	public static final String hoeName = "demoHoe";
 	// Max stack size in inventory
 	public static final int hoeMaxStackSize = 1;
+	// Add enchantments to your hoe. See swordEnchantments above for options
 	public static final Enchantment[] hoeEnchantments = { Enchantment.unbreaking };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] hoeEnchantmentLevels = { 3 };
 	public static Object[] hoeRecipe = null;
 
@@ -227,7 +327,11 @@ public class Config {
 	public static final String shovelName = "demoShovel";
 	// Max stack size in inventory
 	public static final int shovelMaxStackSize = 1;
+	// Add enchantments to your shovel. See swordEnchantments above for options
 	public static final Enchantment[] shovelEnchantments = { Enchantment.efficiency, Enchantment.silkTouch };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] shovelEnchantmentLevels = { 3, 3 };
 	// Don't change this. Recipes are defined below
 	public static Object[] shovelRecipe = null;
@@ -236,7 +340,11 @@ public class Config {
 	public static final String axeName = "demoAxe";
 	// Max stack size in inventory
 	public static final int axeMaxStackSize = 1;
+	// Add enchantments to your axe. See swordEnchantments above for options
 	public static final Enchantment[] axeEnchantments = { Enchantment.efficiency, Enchantment.silkTouch };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] axeEnchantmentLevels = { 3, 3 };
 	// Don't change this. Recipes are defined below
 	public static Object[] axeRecipe = null;
@@ -245,7 +353,11 @@ public class Config {
 	public static final String bowName = "demoBow";
 	// Max stack size in inventory
 	public static final int bowMaxStackSize = 1;
+	// Add enchantments to your bow. See swordEnchantments above for options
 	public static final Enchantment[] bowEnchantments = { Enchantment.flame, Enchantment.infinity };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] bowEnchantmentLevels = { 3, 3 };
 	// Don't change this. Recipes are defined below
 	public static Object[] bowRecipe = null;
@@ -257,8 +369,13 @@ public class Config {
 	public static final String helmetName = "demoHelmet";
 	// Max stack size in inventory
 	public static final int helmetMaxStackSize = 1;
+	// Add enchantments to your helmet. See swordEnchantments above for options
 	public static final Enchantment[] helmetEnchantments = { Enchantment.thorns };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] helmetEnchantmentLevels = { 3 };
+	// Add effects to your helmet. See swordEffects above for options
 	public static final PotionEffect[] helmetEffects = { new PotionEffect(Potion.waterBreathing.id, 200, 0) };
 	// Don't change this. Recipes are defined below
 	public static Object[] helmetRecipe = null;
@@ -267,8 +384,14 @@ public class Config {
 	public static final String chestplateName = "demoChestplate";
 	// Max stack size in inventory
 	public static final int chestplateMaxStackSize = 1;
+	// Add enchantments to your chestplate. See swordEnchantments above for
+	// options
 	public static final Enchantment[] chestplateEnchantments = { Enchantment.thorns };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] chestplateEnchantmentLevels = { 3 };
+	// Add effects to your chestplate. See swordEffects above for options
 	public static final PotionEffect[] chestplateEffects = { new PotionEffect(Potion.regeneration.id, 200, 0) };
 	// Don't change this. Recipes are defined below
 	public static Object[] chestplateRecipe = null;
@@ -277,8 +400,14 @@ public class Config {
 	public static final String leggingsName = "demoLeggings";
 	// Max stack size in inventory
 	public static final int leggingsMaxStackSize = 1;
+	// Add enchantments to your leggings. See swordEnchantments above for
+	// options
 	public static final Enchantment[] leggingsEnchantments = { Enchantment.thorns };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] leggingsEnchantmentLevels = { 3 };
+	// Add effects to your leggings. See swordEffects above for options
 	public static final PotionEffect[] leggingsEffects = { new PotionEffect(Potion.moveSpeed.id, 1200, 0) };
 	// Don't change this. Recipes are defined below
 	public static Object[] leggingsRecipe = null;
@@ -287,8 +416,13 @@ public class Config {
 	public static final String bootsName = "demoBoots";
 	// Max stack size in inventory
 	public static final int bootsMaxStackSize = 1;
+	// Add enchantments to your boots. See swordEnchantments above for options
 	public static final Enchantment[] bootsEnchantments = { Enchantment.thorns };
+	// For each enchantment listed above, give the enchantment level. Make sure
+	// you have the same number of enchantment
+	// levels as enchantments, or your mod could crash
 	public static final int[] bootsEnchantmentLevels = { 3 };
+	// Add effects to your boots. See swordEffects above for options
 	public static final PotionEffect[] bootsEffects = { new PotionEffect(Potion.jump.id, 600, 0) };
 	// Don't change this. Recipes are defined below
 	public static Object[] bootsRecipe = null;
@@ -314,16 +448,32 @@ public class Config {
 
 	// Changing the name can have unintended consequences
 	public static final String biomeIdConfigName = "demo_biome_id";
+	// Don't change any of these
 	public static final int defaultBiomeId = -1;
 	public static final int minBiomeId = 10;
 	public static final int maxBiomeId = 1000;
 	public static int biomeId = defaultBiomeId;
+	// Set the Biome name
 	public static final String biomeName = "Demo Biome";
+	// Set the top block for your biome
 	public static final Block biomeTopBlock = Blocks.grass;
-	public static final int biomeWeight = 500;
+	// The weight given to the biome. The higher the number, the more the biome
+	// will appear in your world. The default is 10, but you probably want it
+	// much higher so you don't have to spend too much time searching for it
+	public static final int biomeWeight = 1000;
+	// Set the biome type. Valid values are
+	//
+	// BiomeType.DESERT
+	// BiomeType.WARM
+	// BiomeType.COOL
+	// BiomeType.ICY
+	//
 	public static final BiomeType biomeType = BiomeType.COOL;
+	// Weight of you world generator. Smaller number is better. You probably
+	// want to keep this as 0
 	public static final int biomeWorldGenerationWeight = 0;
-
+	// How many of the different decorations do you want in your biome? (A chunk
+	// is 16x16 blocks)
 	public static final int biomeDemoBushesPerChunk = 50;
 	public static final int biomeWaterlilyPerChunk = 0;
 	public static final int biomeTreesPerChunk = 10;
@@ -337,21 +487,22 @@ public class Config {
 	public static final int biomeSandPerChunk2 = 0;
 	public static final int biomeClayPerChunk = 0;
 	public static final int biomeBigMushroomsPerChunk = 15;
+	// Set to true if you want to generate lakes, false if you do not
 	public static final boolean biomeGenerateLakes = true;
+	// default biomeMinHeight = 0.1
 	public static final float biomeMinHeight = 0.1F;
 	// default biomeMaxHeight = 0.2F
 	public static final float biomeMaxHeight = 0.2F;
+	// set the temperature for your biome
+	// less than 0.15F will have snow
+	// 1.5F to 0.95F will have rain
+	// greater than 0.95F will have neither
 	public static final float biomeTemperature = 1.5F;
+	// set how often it rains in your biome
+	// 0.0F to 1.0F
+	// 0.0F = no rain
+	// 1.0F = frequent rain
 	public static final float biomeRainfall = 0.2F;
-
-	public static final List<SpawnListEntry> biomeSpawnList = new ArrayList<SpawnListEntry>() {
-		{
-			// new SpawnListEntry(EntityToSpawn.class, spawnRate, spawnMin,
-			// spawnMax);
-			new SpawnListEntry(DemoEntityHostile.class, 50, 4, 8);
-			new SpawnListEntry(DemoEntityTameable.class, 100, 4, 8);
-		}
-	};
 
 	// Changing the name can have unintended consequences
 	public static final String entityHostileName = "demoHostile";
