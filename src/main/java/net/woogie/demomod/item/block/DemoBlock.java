@@ -1,7 +1,6 @@
 package net.woogie.demomod.item.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.woogie.demomod.Config;
 

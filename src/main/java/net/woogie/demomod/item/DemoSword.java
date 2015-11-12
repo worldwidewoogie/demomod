@@ -31,8 +31,8 @@ public class DemoSword extends ItemSword {
 		if (!entity.worldObj.isRemote) {
 
 			if (Config.swordSummonsLightning) {
-				entity.worldObj.addWeatherEffect(new EntityLightningBolt(entity.worldObj, (double) entity.posX + 0.5,
-						(double) entity.posY + 1, (double) entity.posZ + 0.5));
+				entity.worldObj.addWeatherEffect(new EntityLightningBolt(entity.worldObj, entity.posX + 0.5,
+						entity.posY + 1, entity.posZ + 0.5));
 			}
 
 			if (entity instanceof EntityPlayer) {

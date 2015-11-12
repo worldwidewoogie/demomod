@@ -1,7 +1,6 @@
 package net.woogie.demomod.entity.tameable.ai;
 
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -26,25 +25,28 @@ public class DemoEntityAIBeg extends EntityAIBase {
 	/**
 	 * Returns whether the EntityAIBase should begin execution.
 	 */
+	@Override
 	public boolean shouldExecute() {
 		this.thePlayer = this.worldObject.getClosestPlayerToEntity(this.theDemoEntityTameable,
-				(double) this.minPlayerDistance);
+				this.minPlayerDistance);
 		return this.thePlayer == null ? false : this.hasPlayerGotBoneInHand(this.thePlayer);
 	}
 
 	/**
 	 * Returns whether an in-progress EntityAIBase should continue executing
 	 */
+	@Override
 	public boolean continueExecuting() {
 		return !this.thePlayer.isEntityAlive() ? false
 				: (this.theDemoEntityTameable.getDistanceSqToEntity(
-						this.thePlayer) > (double) (this.minPlayerDistance * this.minPlayerDistance) ? false
+						this.thePlayer) > this.minPlayerDistance * this.minPlayerDistance ? false
 								: this.field_75384_e > 0 && this.hasPlayerGotBoneInHand(this.thePlayer));
 	}
 
 	/**
 	 * Execute a one shot task or start executing a continuous task
 	 */
+	@Override
 	public void startExecuting() {
 		this.theDemoEntityTameable.func_70918_i(true);
 		this.field_75384_e = 40 + this.theDemoEntityTameable.getRNG().nextInt(40);
@@ -53,6 +55,7 @@ public class DemoEntityAIBeg extends EntityAIBase {
 	/**
 	 * Resets the task
 	 */
+	@Override
 	public void resetTask() {
 		this.theDemoEntityTameable.func_70918_i(false);
 		this.thePlayer = null;
@@ -61,10 +64,11 @@ public class DemoEntityAIBeg extends EntityAIBase {
 	/**
 	 * Updates the task
 	 */
+	@Override
 	public void updateTask() {
 		this.theDemoEntityTameable.getLookHelper().setLookPosition(this.thePlayer.posX,
-				this.thePlayer.posY + (double) this.thePlayer.getEyeHeight(), this.thePlayer.posZ, 10.0F,
-				(float) this.theDemoEntityTameable.getVerticalFaceSpeed());
+				this.thePlayer.posY + this.thePlayer.getEyeHeight(), this.thePlayer.posZ, 10.0F,
+				this.theDemoEntityTameable.getVerticalFaceSpeed());
 		--this.field_75384_e;
 	}
 

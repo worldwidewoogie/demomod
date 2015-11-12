@@ -1,6 +1,5 @@
 package net.woogie.demomod.biome;
 
-import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;

@@ -27,10 +27,12 @@ public class DemoRenderBoss extends RenderLiving {
 		super.doRender(entity, x, y, z, p_76986_8_, partialTicks);
 	}
 
+	@Override
 	public void doRender(EntityLiving entity, double x, double y, double z, float p_76986_8_, float partialTicks) {
 		this.doRender((DemoEntityBoss) entity, x, y, z, p_76986_8_, partialTicks);
 	}
 
+	@Override
 	public void doRender(EntityLivingBase entity, double x, double y, double z, float p_76986_8_, float partialTicks) {
 		this.doRender((DemoEntityBoss) entity, x, y, z, p_76986_8_, partialTicks);
 	}

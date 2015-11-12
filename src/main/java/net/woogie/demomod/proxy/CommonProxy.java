@@ -135,8 +135,8 @@ public class CommonProxy implements IProxy {
 				Config.entityTameableSpawnColorBase, Config.entityTameableSpawnColorSpots);
 		GameRegistry.registerItem(DemoMod.demoTameableMonsterPlacer, "spawn_" + Config.entityTameableName);
 
-		DemoMod.demoBossMonsterPlacer = new DemoMonsterPlacer(Config.entityBossName,
-				Config.entityBossSpawnColorBase, Config.entityBossSpawnColorSpots);
+		DemoMod.demoBossMonsterPlacer = new DemoMonsterPlacer(Config.entityBossName, Config.entityBossSpawnColorBase,
+				Config.entityBossSpawnColorSpots);
 		GameRegistry.registerItem(DemoMod.demoBossMonsterPlacer, "spawn_" + Config.entityBossName);
 
 		DemoMod.demoBiome = new DemoBiome();
@@ -187,9 +187,8 @@ public class CommonProxy implements IProxy {
 		EntityRegistry.addSpawn(DemoEntityTameable.class, Config.entityTameableSpawnChance,
 				Config.entityTameableSpawnMin, Config.entityTameableSpawnMax, Config.entityTameableType,
 				DemoMod.demoBiome);
-		EntityRegistry.addSpawn(DemoEntityBoss.class, Config.entityBossSpawnChance,
-				Config.entityBossSpawnMin, Config.entityBossSpawnMax, Config.entityBossType,
-				DemoMod.demoBiome);
+		EntityRegistry.addSpawn(DemoEntityBoss.class, Config.entityBossSpawnChance, Config.entityBossSpawnMin,
+				Config.entityBossSpawnMax, Config.entityBossType, DemoMod.demoBiome);
 
 	}
 

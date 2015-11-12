@@ -1,15 +1,12 @@
 package net.woogie.demomod.entity.tameable;
 
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -41,29 +38,34 @@ public class DemoRenderTameable extends RenderLiving {
 			GlStateManager.color(f2, f2, f2);
 		}
 
-		super.doRender((EntityLiving) p_177135_1_, p_177135_2_, p_177135_4_, p_177135_6_, p_177135_8_, p_177135_9_);
+		super.doRender(p_177135_1_, p_177135_2_, p_177135_4_, p_177135_6_, p_177135_8_, p_177135_9_);
 	}
 
 	protected ResourceLocation getEntityTexture(DemoEntityTameable entity) {
 		return entity.isTamed() ? tamedTextures : (entity.isAngry() ? anrgyTextures : textures);
 	}
 
+	@Override
 	public void doRender(EntityLiving entity, double x, double y, double z, float p_76986_8_, float partialTicks) {
 		this.func_177135_a((DemoEntityTameable) entity, x, y, z, p_76986_8_, partialTicks);
 	}
 
+	@Override
 	protected float handleRotationFloat(EntityLivingBase p_77044_1_, float p_77044_2_) {
 		return this.func_180593_a((DemoEntityTameable) p_77044_1_, p_77044_2_);
 	}
 
+	@Override
 	public void doRender(EntityLivingBase entity, double x, double y, double z, float p_76986_8_, float partialTicks) {
 		this.func_177135_a((DemoEntityTameable) entity, x, y, z, p_76986_8_, partialTicks);
 	}
 
+	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		return this.getEntityTexture((DemoEntityTameable) entity);
 	}
 
+	@Override
 	public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float partialTicks) {
 		this.func_177135_a((DemoEntityTameable) entity, x, y, z, p_76986_8_, partialTicks);
 	}

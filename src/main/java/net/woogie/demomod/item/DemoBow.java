@@ -70,6 +70,7 @@ public class DemoBow extends ItemBow {
 		return modelResourceLocation;
 	}
 
+	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityPlayer playerIn, int timeLeft) {
 
 		int j = this.getMaxItemUseDuration(stack) - timeLeft;
@@ -83,10 +84,10 @@ public class DemoBow extends ItemBow {
 				|| EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
 
 		if (flag || playerIn.inventory.hasItem(Items.arrow)) {
-			float f = (float) j / 20.0F;
+			float f = j / 20.0F;
 			f = (f * f + f * 2.0F) / 3.0F;
 
-			if ((double) f < 0.1D) {
+			if (f < 0.1D) {
 				return;
 			}
 
@@ -103,7 +104,7 @@ public class DemoBow extends ItemBow {
 			int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
 
 			if (k > 0) {
-				entityarrow.setDamage(entityarrow.getDamage() + (double) k * 0.5D + 0.5D);
+				entityarrow.setDamage(entityarrow.getDamage() + k * 0.5D + 0.5D);
 			}
 
 			int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, stack);

@@ -19,6 +19,7 @@ public class DemoBlockBush extends BlockBush {
 		this(Material.plants);
 	}
 
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		if (rand.nextFloat() < 0.1F) {
 			return DemoMod.demoSeed;			
