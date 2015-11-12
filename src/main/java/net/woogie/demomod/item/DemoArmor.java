@@ -1,12 +1,17 @@
 package net.woogie.demomod.item;
 
-import net.minecraft.enchantment.EnchantmentHelper;
+import java.util.List;
+
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.woogie.demomod.Config;
 import net.woogie.demomod.DemoMod;
 
@@ -62,6 +67,37 @@ public class DemoArmor extends ItemArmor {
 				}
 			}
 		}
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubItems(Item itemIn, CreativeTabs tab, List subItems) {
+		ItemStack itemStack = new ItemStack(itemIn, 1, 0);
+
+		if (itemIn.equals(DemoMod.demoHelmet)) {
+			for (int i = 0; i < Config.helmetEnchantments.length; i++) {
+				itemStack.addEnchantment(Config.helmetEnchantments[i], Config.helmetEnchantmentLevels[i]);
+			}
+		} else {
+			if (itemIn.equals(DemoMod.demoChestplate)) {
+				for (int i = 0; i < Config.chestplateEnchantments.length; i++) {
+					itemStack.addEnchantment(Config.chestplateEnchantments[i], Config.chestplateEnchantmentLevels[i]);
+				}
+			} else {
+				if (itemIn.equals(DemoMod.demoLeggings)) {
+					for (int i = 0; i < Config.leggingsEnchantments.length; i++) {
+						itemStack.addEnchantment(Config.leggingsEnchantments[i], Config.leggingsEnchantmentLevels[i]);
+					}
+				} else {
+					if (itemIn.equals(DemoMod.demoBoots)) {
+						for (int i = 0; i < Config.bootsEnchantments.length; i++) {
+							itemStack.addEnchantment(Config.bootsEnchantments[i], Config.bootsEnchantmentLevels[i]);
+						}
+					}
+				}
+			}
+		}
+		subItems.add(itemStack);
 	}
 
 	@Override

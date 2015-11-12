@@ -1,6 +1,8 @@
 
 package net.woogie.demomod.item;
 
+import java.util.List;
+
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -11,10 +13,10 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagLong;
 import net.minecraft.stats.StatList;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.ModelBakeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.woogie.demomod.Config;
 
 public class DemoBow extends ItemBow {
@@ -30,6 +32,16 @@ public class DemoBow extends ItemBow {
 		for (int i = 0; i < Config.bowEnchantments.length; i++) {
 			itemStack.addEnchantment(Config.bowEnchantments[i], Config.bowEnchantmentLevels[i]);
 		}
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubItems(Item itemIn, CreativeTabs tab, List subItems) {
+		ItemStack itemStack = new ItemStack(itemIn, 1, 0);
+		for (int i = 0; i < Config.bowEnchantments.length; i++) {
+			itemStack.addEnchantment(Config.bowEnchantments[i], Config.bowEnchantmentLevels[i]);
+		}
+		subItems.add(itemStack);
 	}
 
 	@Override
